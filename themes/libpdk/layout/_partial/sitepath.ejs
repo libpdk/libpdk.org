@@ -1,0 +1,14 @@
+<div class="uk-margin-small-bottom site-path uk-visible@s uk-flex uk-flex-left">
+    <div class="icon" uk-icon="icon: home"></div>
+    <ul class="uk-breadcrumb">
+        <% for (let i in pathList) {
+            let item = pathList[i];
+        %>
+        <% if (item.url){ %>
+        <li><a href="<%- item.url %>"><%- item.name %></a></li>
+        <% } else { %>
+        <li class="uk-disabled"><a href="#"><%- item.name %></a></li>
+        <% } %>
+        <% } %>
+    </ul>
+</div>

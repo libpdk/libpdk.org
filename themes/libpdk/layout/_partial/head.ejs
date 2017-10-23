@@ -1,4 +1,6 @@
 <%
+//    console.log(get_site_data())
+//console.log(site.data)
 let layout;
 if (page.layout) {
     layout = page.layout;
@@ -33,7 +35,7 @@ if (layout == "post") {
     title = "欢迎访问 zendAPI 开发博客";
 } else if (layout == "index") {
     cssfilename = "index.css";
-    title = "zendAPI - The C++ layer for Zend Engine";
+    title = __("index.page_title");
 } else if (layout == "apiindex") {
     title = "欢迎访问 zendAPI 接口文档栏目";
     cssfilename = "api.css";
@@ -65,6 +67,9 @@ if (layout == "post") {
 %>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="ZZU_SOFTBOY">
+<meta name="description" content="libpdk - The fundamental runtime framework of php language">
+<meta name="keywords" content="libpdk, php, framework, web, artisans, ZZU_SOFTBOY, runtime framework, native library">
 <title><%- title %></title>
 <link rel="icon" href="/libpdk.ico" type="image/ico"/>
 <link rel="stylesheet" href="/statics/js/uikit/css/uikit.min.css" />

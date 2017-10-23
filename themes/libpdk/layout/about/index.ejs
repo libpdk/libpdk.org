@@ -1,0 +1,54 @@
+<div id="container" style="width: 100%;">
+    <div class="uk-container uk-margin-small-top uk-margin-small-bottom about-page-container">
+        <%- partial("_partial/sitepath", { pathList: [{
+            name: "网站首页",
+            url : '/'
+        }, {
+            name: "关于我们",
+            url: '/about'
+        }]}) %>
+        <div class="about-container">
+            <div class="uk-visible@s">
+                <ul class="uk-flex-left about-nav" data-uk-tab>
+                    <li class="uk-active"><a href="/about">关于我们</a></li>
+                    <li><a href="/about/changelog.html" class="uk-text-capitalize">Changelog</a></li>
+                    <li><a href="/about/becomesponsor.html">成为赞助者</a></li>
+                    <li><a href="/about/becomedeveloper.html">成为开发者</a></li>
+                    <li><a href="/about/becomepartner.html">成为合作伙伴</a></li>
+                </ul>
+            </div>
+            <div class="about-info-item">
+                <div class="uk-text-center logo"><img src="/statics/images/about/qcoreteam.svg"/></div>
+                <div class="text uk-margin-medium-top">
+                    qcoreteam 是由一群喜欢开源的程序员组成的组织，由2016年10月1日成立，目前地点在北京，所有成员均是兼职参与开发，我们立志打造 一个优秀的开源组织。
+                    <br/>
+                    <span class="uk-label uk-label-success">官方 github 库</span>
+                    <a href="https://www.github.com/qcoreteam">qcoreteam 项目库</a>
+                </div>
+                <hr class="uk-divider-icon"/>
+                <div class="uk-text-center uk-margin-large-top zendapi-logo"><img src = "/statics/images/about/zendapi-logo.svg"/></div>
+                <div class="text uk-margin-medium-top">
+                    zendAPI 项目是针对 Zend Engine 的 C 接口使用 C++11 进行而面向对象的封装，从而屏蔽了底层 Zend Engine API 的接口复杂性，加快开发 PHP 扩展的效率。我们不是对 Zend Engine 进行重新实现
+                    只是在它的基础上对其接口进行分类简化，对上层应用提供一个易用的编程接口。<br/>
+                    <div>
+                        <span class="uk-label uk-label-success uk-text-center" style="width:80px;">360官方开源库</span>
+                        <a href="https://github.com/Qihoo360/zendAPI">zendAPI 360官方开源库</a>
+                    </div>
+                    <div>
+                        <span class="uk-label uk-label-success uk-text-center" style="width:80px;">项目 github </span>
+                        <a href="https://www.github.com/qcoreteam/zendapi">zendAPI 项目库</a>
+                    </div>
+                    <div>
+                        <span class="uk-label uk-label-success uk-text-center" style="width:80px;">项目 码云库 </span>
+                        <a href="https://gitee.com/zendapi/zendapi">zendAPI 码云项目库</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+   $(".about-container .about-nav a").click(function(){
+      window.location.assign($(this).attr("href"));
+   });
+</script>

@@ -14,10 +14,14 @@ hexo.extend.helper.register('clone', function(source){
    return Clone(source);
 });
 
-hexo.extend.helper.register('get_manual_catalog', function(page, config, site){
+hexo.extend.helper.register('get_manual_catalog', function(){
+   
+   let page = this.page;
+   let config = this.config;
    let url_for = hexo.extend.helper.get('url_for');
    let clone = hexo.extend.helper.get('clone');
    let manual_key_from_path = hexo.extend.helper.get('manual_key_from_path');
+   let get_site_data = hexo.extend.helper.get('get_site_data');
    let targetVersion;
    if ("mainEntry" == page.subtype || "versionEntry" == page.subtype) {
       targetVersion = config.zapi_version;
@@ -27,8 +31,9 @@ hexo.extend.helper.register('get_manual_catalog', function(page, config, site){
       targetVersion = match[1];
    }
    let versionKey = "manual/v"+targetVersion.replace(/\./g, "");
-   let catalog = clone(site.data[versionKey]);
-   let key = manual_key_from_path(page.path);
+   
+   let catalog = clone(get_site_data.call(this, versionKey));
+   let key = manual_key_from_path.call(this, page.path);
    let baseUrl = "manual/"+targetVersion;
 
    catalog.forEach(function(category){
@@ -37,9 +42,9 @@ hexo.extend.helper.register('get_manual_catalog', function(page, config, site){
             if (item.key == key) {
                item.isActive = true;
                category.isOpen = true;
-               item.url = url_for.call(hexo, page.canonical_path);
+               item.url = url_for.call(this, page.canonical_path);
             }
-            item.url = url_for.call(hexo,baseUrl + "/"+ category.key + "/" + item.key + ".html");
+            item.url = url_for.call(this,baseUrl + "/"+ category.key + "/" + item.key + ".html");
          });
       }
    });
@@ -65,7 +70,7 @@ hexo.extend.helper.register('get_api_catalog', function(page, config, site){
    _.forIn(catalog, function(item, key) {
       let ret = {
          name: item.name,
-         url: url_for.call(hexo, item.url),
+         url: url_for.call(this, item.url),
          key: key,
          isActive: false
       };
@@ -151,14 +156,35 @@ hexo.extend.helper.register('generate_flat_module_list', function(modules, depth
    let ret = [];
    ++depth;
    for(let i = 0; i < modules.length; i++) {
-      module = modules[i];
-      let name =  prefix != "" ? prefix+"/"+module.name: module.name;
+      let moduleObj = modules[i];
+      let name =  prefix != "" ? prefix+"/"+moduleObj.name: moduleObj.name;
       ret.push({
          name: name,
-         url: url_for_api_entity(module.refid),
+         url: url_for_api_entity.call(this, moduleObj.refid),
          level: depth
       });
-      ret = _.concat(ret, module.modules ? self(module.modules, depth,  name) : []);
+      ret = _.concat(ret, moduleObj.modules ? self.call(this, moduleObj.modules, depth,  name) : []);
    }
    return ret;
+});
+
+hexo.extend.helper.register('get_site_menu_list', function()
+{
+   let get_site_data = hexo.extend.helper.get('get_site_data');
+   let menu = get_site_data.call(this, "category");
+   let items = [];
+   for (let key in menu) {
+      items.push(menu[key]);
+   }
+   return items;
+});
+
+hexo.extend.helper.register('get_site_menu_by_key', function(key)
+{
+   let get_site_data = hexo.extend.helper.get('get_site_data');
+   let menu = get_site_data.call(this, "category");
+   if (!menu.hasOwnProperty(key)) {
+      throw new Error("site menu item: "+key +" is not exist!");
+   }
+   return menu[key];
 });

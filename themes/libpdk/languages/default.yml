@@ -1,4 +1,5 @@
 index:
+  page_title: "libpdk - The fundamental runtime framework of php language"
   get_started: "Get Started"
   gitee_repo: "Gitee Repo"
   github_repo: "Github Repo"
@@ -25,3 +26,14 @@ index:
   partner_title: "Partner"
   become_partner: "How to become partner"
   links_title: "Friend Links"
+manual:
+  page_title: ""
+blog:
+  page_title: ""
+about:
+  page_title: ""
+  menu_become_sponsor: "Become sponsor"
+  menu_become_developer: "Become developer"
+  menu_become_partner: "Become partner"
+  menu_changelog: "Changelog"
+  menu_aboutus: "About us"

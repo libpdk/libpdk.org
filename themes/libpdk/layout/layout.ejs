@@ -45,7 +45,7 @@
                 <%- partial("_partial/inject_site_menu") %>
                 <%
                 if (layout == "manual") {
-                    let catalog = get_manual_catalog(page, config, site);
+                    let catalog = get_manual_catalog();
                 %>
                 <div class="uk-panel">
                     <% for(var i = 0; i < catalog.length; i++) {
@@ -84,12 +84,9 @@
                     <% } %>
                 </ul>
                 <% }%>
-
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" async="async" src ="http://s13.cnzz.com/z_stat.php?id=1264578420"></script>
-<script type="text/javascript" async="async" src ="http://c.cnzz.com/core.php?web_id=1264578420&t=z"></script>
 </body>
 </html>

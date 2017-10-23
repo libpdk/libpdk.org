@@ -1,0 +1,22 @@
+{
+  "home": {
+    "name": "Home",
+    "url": "/"
+  },
+  "manual": {
+    "name": "Manual",
+    "url": "/manual"
+  },
+  "team":{
+    "name": "Team",
+    "url": "/team"
+  },
+  "blog": {
+    "name": "Blog",
+    "url": "/blog"
+  },
+  "about":{
+    "name": "About",
+    "url": "/about"
+  }
+}
