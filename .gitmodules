@@ -1,0 +1,3 @@
+[submodule "tools/apigen"]
+	path = tools/apigen
+	url = libpdk:/libpdk/ApiGen.git
