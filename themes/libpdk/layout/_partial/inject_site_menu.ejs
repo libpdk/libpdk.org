@@ -1,0 +1,11 @@
+<%
+let menuItems = site.data.category;
+%>
+<ul class = "uk-text-left uk-width-1-1">
+    <% for (var i = 0; i < menuItems.length; i++) {
+        let name = menuItems[i].name;
+        let url = menuItems[i].url;
+    %>
+    <li class="uk-width-1-1"><a href = "<%- url %>"><%- name %></a></li>
+    <% } %>
+</ul>

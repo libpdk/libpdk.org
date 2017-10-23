@@ -1,0 +1,124 @@
+@import "variables.scss";
+
+$libpdk-artcle-page-width: 960px;
+body {
+  background-color: #FAFAFA!important;
+}
+.article-page-container
+{
+  max-width: $libpdk-artcle-page-width;
+  padding: 0!important;
+  @media (min-width: 640px) {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+  }
+  margin-top: 20px!important;
+}
+
+.article-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  @media (min-width: 640px) {
+    padding:30px;
+    margin-bottom: 40px;
+  }
+  .article-title {
+    font-size: 1.8em;
+    @media (min-width: 640px) {
+      font-size: 2.5em;
+    }
+  }
+  .article-content {
+    margin-top: 20px;
+    font-size:1.3em;
+    line-height: 2em;
+    @media (min-width: 640px) {
+      margin-top: 30px;
+    }
+    pre {
+      padding: 0!important;
+      margin: 0!important;
+      margin-bottom: 10px!important;
+      border: none;
+      code {
+        padding-bottom: 15px;
+        padding-top: 15px;
+        @media (max-width: 640px) {
+          width: 1300px;
+        }
+      }
+    }
+    blockquote {
+      border-left: 5px solid #cccccc;
+      padding-left: 10px;
+      /* 1 */
+      overflow-wrap: break-word;
+      /* 2 */
+      word-wrap: break-word;
+      /* 3 */
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      hyphens: auto;
+      font-size: 1.2em;
+      @media (min-width: 640px) {
+        border-left: 10px solid #cccccc;
+        padding-left: 20px;
+      }
+
+    }
+    ol {
+      li {
+        list-style-type: decimal!important;
+      }
+    }
+    ul {
+      li {
+        list-style-type:square!important;
+      }
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+.page-nav {
+  margin-bottom: 20px;
+  @media (min-width: 640px) {
+    margin-bottom: 40px;
+  }
+  span {
+    height:25px;
+    line-height: 25px;
+  }
+  svg {
+    color: $libpdk-link-color;
+    height: 1.2em;
+    width:1.2em;
+    @media (min-width: 640px) {
+      height: 25px;
+      width:25px;
+    }
+    padding-right: 5px;
+    padding-left:5px;
+  }
+  a {
+    height:25px;
+    line-height:25px;
+    font-size: 1.3em;
+  }
+  .nav-item-right {
+    margin-top: 5px;
+    @media (min-width: 960px) {
+      margin-top: 0;
+    }
+  }
+}
+.page-nav-link-hover {
+  color: $libpdk-base-color!important;
+  transition: 0.1s ease-in-out;
+  -webkit-transition-property: color;
+  transition-property: color;
+}

@@ -1,0 +1,118 @@
+@import "variables.scss";
+$libpdk-blog-page-width: 960px;
+body {
+  background-color: #FAFAFA!important;
+}
+.blog-page-container
+{
+  max-width: $libpdk-blog-page-width;
+  padding: 0!important;
+  @media (min-width: 640px) {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+  }
+  margin-top: 20px!important;
+}
+
+.blog-list-container {
+  min-height: 800px;
+  .page-nav {
+    a {
+      display: block;
+      border: 2px solid #cccccc;
+      border-radius: 50%;
+      margin-right: 10px;
+      margin-left: 10px;
+      -webkit-transition: 0.1s ease-in-out;
+      transition: 0.1s ease-in-out;
+      -webkit-transition-property: background-color, color, border-color;
+      transition-property: background-color, color, border-color;
+      &:hover {
+        border-color:$libpdk-base-color;
+        background-color: $libpdk-base-color;
+        color: #ffffff;
+        -webkit-transition: 0.1s ease-in-out;
+        transition: 0.1s ease-in-out;
+        -webkit-transition-property: background-color, color, border-color;
+        transition-property: background-color, color, border-color;
+      }
+    }
+    svg {
+      -webkit-transition: 0.1s ease-in-out;
+      transition: 0.1s ease-in-out;
+      -webkit-transition-property: color;
+      transition-property:color;
+      height:40px;
+      width : 40px;
+      color: #cccccc;
+      &:hover {
+        color: #ffffff;
+        -webkit-transition: 0.1s ease-in-out;
+        transition: 0.1s ease-in-out;
+        -webkit-transition-property: color;
+        transition-property:color;
+      }
+    }
+  }
+}
+
+.blog-list-item {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 20px;
+  @media (min-width: 640px) {
+    margin-bottom: 50px;
+    padding:30px;
+  }
+  .title {
+    font-size: 1.8em;
+    @media (min-width: 640px) {
+      font-size: 2.5em;
+    }
+  }
+  .meta {
+    font-size: 11px;
+    color: #cccccc;
+    margin-top: 5px;
+  }
+  .meta-img {
+    img {
+      opacity: 0.8;
+      max-height: 300px;
+      @media (min-width: 640px) {
+        max-height: 350px;
+        border-radius:2px;
+      }
+    }
+  }
+  .excerpt {
+    color: #808080;
+    line-height: 25px;
+    font-size: 1.2em;
+    ol {
+      li {
+        list-style-type: decimal!important;
+      }
+    }
+    ul {
+      li {
+        list-style-type:square!important;
+      }
+    }
+  }
+  .goto-detail-btn {
+    color: #999999!important;
+    height: 35px;
+    border-radius: 35px;
+    line-height: 35px;
+    border-color: #999999;
+    font-weight: 100;
+    font-size:13px;
+    &:hover {
+      color: #ffffff!important;
+      background: $libpdk-base-color;
+      border-color: $libpdk-base-color;
+    }
+  }
+}
+

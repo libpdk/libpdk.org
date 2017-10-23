@@ -1,0 +1,415 @@
+@import "variables.scss";
+
+.hot-area {
+  background: $libpdk-base-color;
+  font-family: "Gotham Rounded";
+  color: #ffffff;
+  height: 430px;
+}
+/* Phone landscape and bigger */
+
+@media (min-width: 300px) {
+  .hot-area {
+    height: 480px;
+  }
+}
+
+@media (min-width: 640px) {
+  .hot-area {
+    height: 350px;
+  }
+}
+
+@media (min-width: 820px) {
+  .hot-area {
+    height: 290px;
+  }
+}
+
+.logo-img
+{
+  color: #ffffff;
+  font-size: 2.0em;
+}
+.logo-img:hover
+{
+  color: #ffffff;
+}
+
+/**
+ * hot area region style
+ */
+.hot-area {
+  .libpdk {
+    font-size: 60px;
+    padding-top: 30px;
+  }
+  .slogan {
+    font-size: 30px;
+  }
+  .btn {
+    height: 35px;
+    @media (min-width: 640px) {
+      width: 520px;
+      margin: 0 auto;
+    }
+    .start-btn {
+      color: $libpdk-base-color!important;
+      background: #ffffff;
+      border: none;
+      height: 35px;
+      line-height: 38px;
+      width:150px;
+      padding: 0;
+    }
+    .github-repo-btn {
+      color: #dddddd!important;
+      height: 35px;
+      line-height: 35px;
+      border-color: #dddddd;
+      width:150px;
+      &:hover {
+        color: #ffffff!important;
+        border-color: #ffffff;
+      };
+      padding: 0;
+    }
+  }
+}
+
+/**
+ * feature region style
+ */
+.features {
+  .title {
+    width: 90px;
+    font-size: 20px;
+    //font-family: -apple-system, BlinkMacSystemFont, "微软雅黑", "黑体";
+    color: #363b40;
+    font-weight: bold;
+    border-bottom: 3px solid $libpdk-base-color;
+    padding-bottom: 5px;
+  }
+  .grid {
+    max-width: $libpdk-page-max-width;
+  }
+  .uk-grid + .uk-grid, .uk-grid > .uk-grid-margin, * + .uk-grid-margin
+  {
+    margin-top: 0!important;
+  }
+  .feature-item {
+    min-height: 250px;
+    @media (min-width: 640px) {
+      min-height: 260px;
+    }
+    @media (min-width: 960px) {
+      min-height: 230px;
+    }
+
+    .feature-title {
+      //font-family: -apple-system, BlinkMacSystemFont, "微软雅黑", "黑体";
+      color: #363b40;
+      font-weight: bold;
+      font-size: 1.5em;
+      @media (min-width: 960px) {
+        font-size: 1.2em;
+      }
+    }
+    .icon {
+      color: $libpdk-base-color;
+      width : 60px;
+      height: 60px;
+    }
+    .feature-desc {
+      font-size: 1.1em;
+    }
+  }
+}
+
+/**
+ * info list region style
+ */
+.info-list-panel {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  background: #F5F5F5;
+  .grid-wrapper {
+    max-width: $libpdk-page-max-width;
+    @media (min-width: 640px) {
+      min-width: 640px;
+    }
+    @media (min-width: 960px) {
+      min-width: 960px;
+    }
+    @media (min-width: $libpdk-page-max-width) {
+      min-width: $libpdk-page-max-width;
+    }
+
+  }
+  .panel-title {
+    //font-family: -apple-system, BlinkMacSystemFont, "微软雅黑", "黑体";
+    color: #363b40;
+    font-weight: bold;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .title-icon {
+    color: $libpdk-base-color;
+    width : 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .info-list li{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    @media (min-width: 640px) {
+      max-width: 100%;
+      /* 2 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    a {
+      font-size: 1.2em;
+      @media (min-width: 960px) {
+        font-size: 1.1em;
+      }
+    }
+  }
+  .info-list{
+    border-bottom: 1px solid $libpdk-border-color;
+    padding-bottom: 10px;
+  }
+}
+
+/**
+ * Sponsor region style
+ */
+.sponsors-panel {
+  min-height:250px;
+  max-width: $libpdk-page-max-width;
+  .sponsor-title {
+    img {
+      height:60px;
+      width: 60px;
+      @media (min-width: 640px) {
+        height:80px;
+        width: 80px;
+      }
+    }
+    padding-bottom: 10px;
+    height: 60px;
+    line-height: 60px;
+    @media (min-width: 640px) {
+      height: 80px;
+      line-height: 80px;
+    }
+    font-size: 25px;
+    //font-family: -apple-system, BlinkMacSystemFont, "微软雅黑", "黑体";
+    color: #363b40;
+    font-weight: bold;
+  }
+  .sponsor-logo {
+    img {
+      height: 80px;
+      max-height: 80px;
+    }
+    margin-bottom: 10px;
+    @media (min-width: 640px) {
+      margin-bottom: 30px;
+    }
+    opacity: 0.6;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    &:hover {
+      opacity: 1;
+      -webkit-transition: 0.2s ease-in-out;
+      transition: 0.2s ease-in-out;
+      -webkit-transition-property: opacity;
+      transition-property: opacity;
+    }
+  }
+}
+.become-sponsor-btn {
+  color: $libpdk-base-color!important;
+  height: 40px;
+  line-height:40px;
+  border-color: $libpdk-base-color;
+  font-weight: lighter;
+  &:hover {
+    color: #ffffff!important;
+    background: $libpdk-base-color;
+    border-color: $libpdk-base-color;
+  }
+}
+
+/**
+ * teamwork region style
+ */
+.teamwork-panel {
+  min-height:250px;
+  max-width: $libpdk-page-max-width;
+  .teamwork-title {
+    img {
+      height:50px;
+      width: 50px;
+      padding-right: 10px;
+      @media (min-width: 640px) {
+        height:70px;
+        width: 70px;
+      }
+    }
+    padding-bottom: 10px;
+    height: 50px;
+    line-height: 50px;
+    @media (min-width: 640px) {
+      height: 70px;
+      line-height: 70px;
+    }
+    font-size: 25px;
+    //font-family: -apple-system, BlinkMacSystemFont, "微软雅黑", "黑体";
+    color: #363b40;
+    font-weight: bold;
+  }
+  .developer-logo {
+    img {
+      display: inline-block;
+      border: 2px solid #15BC70;
+      height: 90px;
+      width:90px;
+      border-radius: 50%;
+      padding:3px;
+      opacity: 0.6;
+      -webkit-transition: 0.2s ease-in-out;
+      transition: 0.2s ease-in-out;
+      -webkit-transition-property: opacity;
+      transition-property: opacity;
+      &:hover {
+        opacity: 1;
+        -webkit-transition: 0.2s ease-in-out;
+        transition: 0.2s ease-in-out;
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+      }
+    }
+  }
+}
+
+.become-developer-btn {
+  color: $libpdk-base-color!important;
+  height: 40px;
+  line-height:40px;
+  border-color: $libpdk-base-color;
+  font-weight: lighter;
+  &:hover {
+    color: #ffffff!important;
+    background: $libpdk-base-color;
+    border-color: $libpdk-base-color;
+  }
+}
+
+/**
+ * partner region style
+ */
+.partner-panel {
+  min-height:250px;
+  max-width: $libpdk-page-max-width;
+  .partner-title {
+    img {
+      height:60px;
+      width: 60px;
+      @media (min-width: 640px) {
+        height:80px;
+        width: 80px;
+      }
+      padding-right: 10px;
+    }
+    padding-bottom: 10px;
+    height: 60px;
+    line-height: 60px;
+    @media (min-width: 640px) {
+      height: 80px;
+      line-height: 80px;
+    }
+    font-size: 25px;
+    //font-family: -apple-system, BlinkMacSystemFont, "微软雅黑", "黑体";
+    color: #363b40;
+    font-weight: bold;
+  }
+  .partner-logo {
+    img {
+      height: 60px;
+      max-height: 60px;
+    }
+    margin-bottom: 10px;
+    @media (min-width: 640px) {
+      margin-bottom: 30px;
+    }
+    opacity: 0.6;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    &:hover {
+      opacity: 1;
+      -webkit-transition: 0.2s ease-in-out;
+      transition: 0.2s ease-in-out;
+      -webkit-transition-property: opacity;
+      transition-property: opacity;
+    }
+  }
+}
+.become-partner-btn {
+  color: $libpdk-base-color!important;
+  height: 40px;
+  line-height:40px;
+  border-color: $libpdk-base-color;
+  font-weight: lighter;
+  &:hover {
+    color: #ffffff!important;
+    background: $libpdk-base-color;
+    border-color: $libpdk-base-color;
+  }
+}
+
+/**
+ * link region style
+ */
+.linkers-panel {
+  @media (min-width: 640px) {
+    padding: 0 10% 0 10%;
+  }
+  min-height:250px;
+  max-width: $libpdk-page-max-width;
+  .linker-title {
+    img {
+      height:60px;
+      width: 60px;
+      padding-right: 10px;
+      @media (min-width: 640px) {
+        height:70px;
+        width: 70px;
+      }
+    }
+    padding-bottom: 10px;
+    height: 60px;
+    line-height: 60px;
+    @media (min-width: 640px) {
+      height: 80px;
+      line-height: 80px;
+    }
+    font-size: 25px;
+    //font-family: -apple-system, BlinkMacSystemFont, "微软雅黑", "黑体";
+    color: #363b40;
+    font-weight: bold;
+  }
+  a {
+    font-size:1.2em;
+  }
+}

@@ -1,0 +1,81 @@
+<%
+let layout;
+if (page.layout) {
+    layout = page.layout;
+} else if (page.title) {
+    layout = "post";
+} else if (page._isBlogList) {
+    layout = "blog";
+}
+let title = "";
+let cssfilename = "";
+if (layout == "post") {
+    title = page.title + "-zendAPI 博客";
+    cssfilename = "article.css";
+} else if (layout == "manual") {
+    title = page.title + "-zendAPI 手册";
+    cssfilename = "manual.css";
+} else if (page.maintype == "about") {
+    if (layout == "about/index") {
+        title = "关于我们-zendAPI";
+    } else if (layout == "about/changelog"){
+        title = "项目变更大事记-zendAPI";
+    } else if (layout == "about/become_developer") {
+        title = "加入我们成为开发者-zendAPI";
+    } else if (layout == "about/become_partner") {
+        title = "如何成为合作伙伴-zendAPI";
+    } else if (layout == "about/become_sponsor") {
+        title = "支持我们成为赞助商-zendAPI";
+    }
+    cssfilename = "about.css";
+}else if (layout == "blog") {
+    cssfilename = "blog.css";
+    title = "欢迎访问 zendAPI 开发博客";
+} else if (layout == "index") {
+    cssfilename = "index.css";
+    title = "zendAPI - The C++ layer for Zend Engine";
+} else if (layout == "apiindex") {
+    title = "欢迎访问 zendAPI 接口文档栏目";
+    cssfilename = "api.css";
+} else if (layout == "apimodules") {
+    title = "模块文档索引页-zendAPI";
+    cssfilename = "api.css";
+} else if (layout == "apinamespaces") {
+    title = "名称空间文档索引页-zendAPI";
+    cssfilename = "api.css";
+} else if (layout == "apiglobals") {
+    title = " 全局定义文档索引页-zendAPI";
+    cssfilename = "api.css";
+} else if (layout == "apifiles") {
+    title = "所有文件文档索引页-zendAPI";
+    cssfilename = "api.css";
+} else if (layout == "apiclasscontent") {
+    title = page.cls.name + " 类详细文档";
+    cssfilename = "api.css";
+} else if (layout == "apinamespacecontent") {
+    title = page.namespace.name + " 名称空间详细文档";
+    cssfilename = "api.css";
+} else if (layout == "apimodulecontent") {
+    title = page.module.name + " 模块详细文档";
+    cssfilename = "api.css";
+} else if (layout == "apifilecontent") {
+    title = page.file.name + " 文件详细文档";
+    cssfilename = "api.css";
+}
+%>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><%- title %></title>
+<link rel="icon" href="/libpdk.ico" type="image/ico"/>
+<link rel="stylesheet" href="/statics/js/uikit/css/uikit.min.css" />
+<link rel="stylesheet" href="/statics/css/base.css" />
+<% if (cssfilename)  {%>
+<link rel="stylesheet" href="/statics/css/<%- cssfilename %>" />
+<%}%>
+<script type="text/javascript" src = "/statics/js/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src = "/statics/js/uikit/js/uikit.min.js"></script>
+<script type="text/javascript" src = "/statics/js/uikit/js/uikit-icons.min.js"></script>
+<% if (layout == "manual" || layout == "post") { %>
+<script type="text/javascript" src = "/statics/js/highlight/highlight.pack.js"></script>
+<link rel="stylesheet" href="/statics/js/highlight/styles/railscasts.css" />
+<% } %>

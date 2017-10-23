@@ -1,0 +1,130 @@
+@import "variables.scss";
+
+$libpdk-about-page-width: 960px;
+body {
+  background-color: #FAFAFA!important;
+}
+.about-page-container
+{
+  max-width: $libpdk-about-page-width;
+  padding: 0!important;
+  margin-bottom: 20px!important;
+  @media (min-width: 640px) {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+    margin-bottom: 40px!important;
+  }
+  margin-top: 20px!important;
+}
+
+.about-container {
+  min-height: 500px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  @media (min-width: 640px) {
+    padding: 40px;
+  }
+  .uk-tab > .uk-active > a {
+    color: #333;
+    border-color: $libpdk-base-color;
+    font-family: "Gotham Rounded";
+  }
+  .uk-tab a {
+    font-family: "Gotham Rounded"!important;
+  }
+  .changelog-container {
+    h1 {
+      font-family: "Gotham Rounded";
+      margin-top: 20px;
+      margin-bottom: 20px;
+      @media (min-width: 640px) {
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+    }
+    font-family: "Gotham Rounded";
+    .changelog-item {
+      margin-bottom: 20px;
+      @media (min-width: 640px) {
+        margin-bottom: 30px;
+      }
+      .title {
+        font-size: 1.2em;
+        font-weight: 100;
+        @media (min-width: 640px) {
+          font-size: 1.8em;
+        }
+      }
+      .loginfo-item {
+        margin-top: 10px;
+        @media (min-width: 640px) {
+          margin-top: 20px;
+        }
+        .uk-label {
+          font-family: $global-font-family!important;
+          height:20px!important;
+          line-height: 20px!important;
+          font-size: 10px;
+          width:60px!important;
+        }
+        .text {
+          margin-left: 5px;
+          height: 22px;
+          line-height:22px;
+        }
+      }
+    }
+  }
+
+  .about-info-item {
+    margin-top: 20px;
+    @media (min-width: 640px) {
+      margin-top: 40px;
+    }
+    .logo {
+      @media (min-width: 640px) {
+        margin-top: 60px;
+      }
+    }
+    img {
+      width:60%;
+      @media (min-width: 640px) {
+        width:50%;
+      }
+    }
+    .text {
+      font-size:1.1em;
+      line-height: 1.8em;
+      @media (min-width: 640px) {
+        font-size:1.3em;
+        line-height: 2em;
+      }
+
+    }
+    .libpdk-logo {
+      img {
+        height: 60px;
+      }
+    }
+    a {
+      text-decoration: underline;
+    }
+    .uk-label {
+      height:18px!important;
+      line-height: 18px!important;
+      font-size: 11px!important;
+      margin-right: 5px!important;
+    }
+  }
+  .about-sponsor-container {
+
+  }
+  .about-partner-container {
+
+  }
+  .about-developer-container {
+
+  }
+}

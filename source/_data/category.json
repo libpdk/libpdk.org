@@ -1,0 +1,16 @@
+[{
+  "name": "Home",
+  "url": "/"
+},{
+  "name": "Manual",
+  "url": "/manual"
+},{
+  "name": "Team",
+  "url": "/team"
+},{
+  "name": "Blog",
+  "url": "/blog"
+}, {
+  "name": "About",
+  "url": "/about"
+}]

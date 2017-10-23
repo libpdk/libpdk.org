@@ -1,0 +1,65 @@
+<%
+let newslist = [];
+let count = 0;
+site.posts.forEach(function(item){
+    if (count > 4) {
+        return false;
+    }
+    newslist.push({
+        title: item.title,
+        url: url_for(item.canonical_path),
+        date: item.date
+    });
+    count++;
+});
+newslist.sort(function(left, right){
+    let l = left.date.unix();
+    let r = right.date.unix();
+    if (l < r) {
+        return 1;
+    } else if (l == r) {
+        return 0;
+    } else {
+        return -1;
+    }
+});
+let manuallist = site.data.recommendmanuallist;
+%>
+<div class="info-list-panel uk-margin-medium-top uk-flex uk-flex-center uk-box-shadow-medium">
+    <div class="uk-child-width-expand@s grid-wrapper" data-uk-grid>
+        <div class="uk-width-1-1 uk-width-1-2@s info-item">
+            <div class="uk-flex uk-flex-column">
+                <div class="panel-title uk-text-center uk-text-left@s uk-margin-small-top">
+                    <img class="title-icon" src="statics/images/index/infolist/manual.svg" /><%= __("index.tutorials") %></div>
+                <ul class="info-list uk-text-left uk-margin-small-top uk-list uk-list-divider">
+                    <% if (manuallist.length > 0) {
+                            for(let i in manuallist) {
+                        let item = manuallist[i];
+                    %>
+                    <li><a href="<%- item.url %>"><%- item.title %></a></li>
+                    <% }
+                    } else { %>
+                    <li><%= __("index.empty_list") %></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <div class="uk-width-1-1 uk-width-1-2@s info-item">
+            <div class="uk-flex uk-flex-column">
+                <div class="panel-title uk-text-center uk-text-left@s uk-margin-small-top">
+                    <img class="title-icon" src="statics/images/index/infolist/news.svg" /><%= __("index.latest_posts") %></div>
+                <ul class="info-list uk-text-left uk-margin-small-top uk-list uk-list-divider">
+                    <% if (newslist.length > 0) {
+                            for(let i in newslist) {
+                        let item = newslist[i];
+                    %>
+                    <li><a href="<%- item.url %>"><%- item.title %></a></li>
+                    <% }
+                    } else { %>
+                    <li><%= __("index.empty_list") %></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
