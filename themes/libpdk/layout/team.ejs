@@ -1,0 +1,74 @@
+<div id="container" style="width: 100%;">
+    <div class="uk-container uk-margin-small-top uk-margin-small-bottom team-page-container">
+        <%- partial("_partial/sitepath", { pathList: [
+            get_site_menu_by_key("home"),
+            get_site_menu_by_key("team")
+        ]}) %>
+        <div class="team-container">
+            <h1 class="uk-heading-line">
+                <%= __("team.meet_team") %>
+            </h1>
+            <div class="welcome-contributor">
+                <span><%= __("team.contribute_types") %></span>
+                <ul>
+                    <li><%= __("team.cpp_developer") %></li>
+                    <li><%= __("team.manual_writter") %></li>
+                    <li><%= __("team.php_apidoc_writter") %></li>
+                    <li><%= __("team.cpp_apidoc_writter") %></li>
+                    <li><%= __("team.website_maintainer") %></li>
+                    <li><%= __("team.demo_application_developer") %></li>
+                    <li><%= __("team.community_sermon") %></li>
+                </ul>
+                <p><%= __("team.interesting_desc") %></p>
+                <div class="info-item">
+                    <img src="/statics/images/team/email.svg">
+                    <span>zzusoftboy@gmail.com</span>
+                    <div style="clear: both"></div>
+                </div>
+            </div>
+            <section class="team-section-wrapper">
+                <h2 class="uk-heading-line"><%= __("team.core_team_title") %></h2>
+                <p class="desc"><%= __("team.core_team_desc") %></p>
+                <div class="team-section-item uk-text-middle">
+                    <img src="/statics/images/team/developers/zzu_softboy.jpeg" class="avatar"/>
+                    <div class="info uk-margin-medium-left">
+                        <div class="info-item">ZZU_SOFTBOY</div>
+                        <div class="info-item">CORE FOCUS: libpdk/* </div>
+                        <div class="info-item">
+                            <img src="/statics/images/team/job.svg" class="info-icon"/>
+                            Creator@libpdk <a href="http://360.com">qihoo</a>
+                        </div>
+                        <div class="info-item">
+                            <img src="/statics/images/team/address.svg" class="info-icon"/>
+                            <span>Beijing City, China</span>
+                        </div>
+                        <div class="info-item">
+                            <img src="/statics/images/team/global.svg" class="info-icon"/>
+                            <span>中文/English</span>
+                        </div>
+                        <div class="info-item">
+                            <img src="/statics/images/team/link.svg" class="info-icon"/>
+                            <a href="https://www.patreon.com/zzusoftboy">patreon.com/zzusoftboy</a>
+                        </div>
+                        <div class="info-item">
+                            <a href="http://www.github.com/libpdk" target="_blank"><img src="/statics/images/team/github.svg" class="social-media-icon"/></a>
+                            <a href="https://www.facebook.com/zzusoftboy" target="_blank"><img src="/statics/images/team/facebook.svg" class="social-media-icon"/></a>
+                            <a href="https://www.twitter.com/zzusoftboy" target="_blank"><img src="/statics/images/team/twitter.svg" class="social-media-icon"/></a>
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+            </section>
+            <hr class="uk-divider-icon">
+            <section class="team-section-wrapper">
+                <h2 class="uk-heading-line"><%= __("team.community_team_title") %></h2>
+                <p class="desc"><%= __("team.community_team_desc") %></p>
+                <div class="team-member-item">
+                    <p class="nomember"><%= __("team.nomember") %></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script>
+</script>

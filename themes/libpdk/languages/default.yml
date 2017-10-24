@@ -33,6 +33,21 @@ manual:
   page_title_suffix: " - libpdk develop manual"
 team:
   page_title: "Meet the developer guys of libpdk project"
+  nomember: "oops, current no developer from the community, very welcome to join us."
+  meet_team: "Meet the Team"
+  contribute_types: "We need these types of contributors:"
+  cpp_developer: "Core CPP developer"
+  manual_writter: "libpdk application manual writer"
+  php_apidoc_writter: "PHP API documentation writer"
+  cpp_apidoc_writter: "CPP API documentation writer"
+  website_maintainer: "Official website maintainer"
+  demo_application_developer: "Demo application developer"
+  community_sermon: "Community sermon for libpdk"
+  interesting_desc: "If you are interested in any kind of work in the list above, please contact me:"
+  core_team_title: "The Core Team"
+  core_team_desc: "The development of libpdk and its ecosystem is guided by an international team, some of whom have chosen to be featured below."
+  community_team_title: "The Community Contributors"
+  community_team_desc: "Some members of the libpdk community have so enriched it, that they deserve special mention. We've developed a more intimate relationship with these key partners, often coordinating with them on upcoming features and news."
 blog:
   page_title: "Welcome visit develop blog of libpdk project"
 post: 

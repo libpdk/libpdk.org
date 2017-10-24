@@ -1,0 +1,113 @@
+@import "variables.scss";
+
+$libpdk-about-page-width: 960px;
+body {
+  background-color: #FAFAFA!important;
+}
+.team-page-container
+{
+  max-width: $libpdk-about-page-width;
+  padding: 0!important;
+  margin-bottom: 20px!important;
+  @media (min-width: 640px) {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+    margin-bottom: 40px!important;
+  }
+  margin-top: 20px!important;
+}
+
+.team-container {
+  min-height: 500px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  font-size: 1.2em;
+  padding: 20px;
+  @media (min-width: 640px) {
+    padding: 40px;
+  }
+  li {
+    list-style-type: square;
+  }
+  .uk-heading-line {
+    font-family: $global-font-family;
+  }
+  .team-section-wrapper {
+    p.desc {
+      @media (min-width: 640px) {
+        padding-bottom: 30px;
+      }
+    }
+    .team-section-item {
+      font-size: 0.9em;
+      .avatar {
+        display: block;
+        border: 2px solid $libpdk-light-base-color;
+        height: 90px;
+        width:90px;
+        border-radius: 50%;
+        padding:3px;
+        opacity: 1;
+        -webkit-transition: 0.2s ease-in-out;
+        transition: 0.2s ease-in-out;
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.6;
+          -webkit-transition: 0.2s ease-in-out;
+          transition: 0.2s ease-in-out;
+          -webkit-transition-property: opacity;
+          transition-property: opacity;
+        }
+        float: left;
+      }
+      .info {
+        float: left;
+        .info-item {
+          margin-bottom: 3px;
+          height: 25px;
+          line-height: 25px;
+        }
+        .info-icon {
+          height: 20px;
+          width: 20px;
+          margin-top: -5px;
+        }
+        .social-media-icon {
+          height: 20px;
+          width: 20px;
+          float: left;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  .welcome-contributor {
+    margin-bottom: 20px;
+    .info-item{
+      height: 30px;
+      line-height: 30px;
+      span {
+        display: inline-block;
+        float: left;
+      }
+      img {
+        display: inline-block;
+        float: left;
+        margin-top: -3px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .uk-divider-icon {
+    @media (min-width: 640px) {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+  }
+  .team-member-item {
+    .nomember {
+    }
+  }
+}
