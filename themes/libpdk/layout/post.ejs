@@ -1,0 +1,75 @@
+<%
+function zapi_atricle_render_link(info)
+{
+    if (info) {
+        return '<a href="'+info.url+'">'+info.title+'</a>';
+    } else {
+        return "<a>"+ __("common.empty_data") +"</a>";
+    }
+}
+let prev = next = null;
+if (page.prev) {
+    prev = {
+        title: page.prev.title,
+        url: url_for(page.prev.canonical_path)
+    };
+}
+if (page.next) {
+    next = {
+        title: page.next.title,
+        url: url_for(page.next.canonical_path)
+    };
+}
+let content = page.content.replace(/<a\s*?href\s*=\s*['"]([^'"]+)['"]\s*?class\s*?=\s*['"]header-anchor['"].*?<\/a>/g,
+        "<a href=\"#$1\" class=\"header-anchor\">#</a>");
+let date = page.date.format("YYYY/MM/DD HH:mm:ss");
+let title = page.title;
+%>
+<div id="container" style="width: 100%">
+    <div class="uk-container uk-margin-small-top uk-margin-small-bottom article-page-container">
+        <%- partial("_partial/sitepath", { pathList: [
+            get_site_menu_by_key("home"),
+            get_site_menu_by_key("blog"),
+            {
+                name: "The blog content"
+            }]}) %>
+        <div>
+            <div class="article-container">
+                <h1 class="uk-article-title article-title"><%- title %></h1>
+                <div class="uk-flex uk-flex-left uk-article-meta article-meta"><%- date %></div>
+                <div class="uk-article article-content uk-margin-medium-bottom">
+                    <%- content %>
+                </div>
+            </div>
+            <div class="uk-grid-small uk-child-width-expand@s uk-text-center page-nav" uk-grid>
+                <div class="uk-width-1-1@s uk-width-1-2@m uk-flex uk-flex-left nav-item">
+                    <span data-uk-icon="icon: chevron-left"></span>
+                    <div class="uk-text-break uk-text-left"><%- zapi_atricle_render_link(prev) %></div>
+                </div>
+                <div class="uk-width-1-1@s uk-width-1-2@m uk-width-1-2@m uk-flex uk-flex-right nav-item nav-item-right">
+                    <div class="uk-text-break uk-text-right"><%- zapi_atricle_render_link(next) %></div>
+                    <span data-uk-icon="icon: chevron-right"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+   $(function ()
+   {
+      var navItems = $(".page-nav .nav-item a");
+      navItems.hover(function ()
+      {
+         $(".page-nav .nav-item svg").addClass("page-nav-link-hover");
+      }, function ()
+      {
+         $(".page-nav .nav-item svg").removeClass("page-nav-link-hover");
+      });
+      $(document).ready(function() {
+         $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+         });
+      });
+   });
+</script>

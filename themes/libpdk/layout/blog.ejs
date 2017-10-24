@@ -1,0 +1,58 @@
+<%
+let items = [];
+page.posts.forEach(function(doc){
+    //获取第一张图片
+    let matches = doc.content.match(/<img.*?src\s*?=\s*['"]([^'"]+)['"]/i);
+    items.push({
+        title: doc.title,
+        date: doc.date.format("YYYY/MM/DD HH:mm:ss"),
+        excerpt: doc.excerpt.replace(/<img.*?\/?>/g, ""),
+        link: url_for(doc.canonical_path),
+        coverImage: matches ? matches[1] : null
+    });
+});
+let prevLink = page.prev_link == "" ? null : url_for(page.prev_link);
+let nextLink = page.next_link == "" ? null : url_for(page.next_link);
+%>
+<div id="container" style="width: 100%">
+    <div class="uk-container uk-margin-small-top uk-margin-small-bottom blog-page-container">
+        <%- partial("_partial/sitepath", { pathList: [
+            get_site_menu_by_key("home"),
+            get_site_menu_by_key("blog")
+        ]}) %>
+        <div class="blog-list-container">
+            <% for(let i in items) {
+                let info = items[i];
+            %>
+            <div class="blog-list-item">
+                <div class="title"><a href="<%- info.link %>"><%- info.title %></a></div>
+                <div class="uk-flex uk-flex-left meta"><%- info.date %></div>
+                <% if (info.coverImage) { %>
+                <div class="meta-img uk-margin-medium-top uk-text-center"><img src="<%- info.coverImage %>"/></div>
+                <% } %>
+                <% if (info.excerpt != "") { %>
+                <div class="excerpt uk-margin-medium-top uk-text-break">
+                    <%- info.excerpt %>
+                </div>
+                <% } %>
+                <div>
+                    <button class="uk-button uk-button-default goto-detail-btn uk-margin-medium-top">
+                        <%= __("common.readmore") %></button>
+                </div>
+            </div>
+            <% } %>
+            <div class="uk-navbar-container uk-margin-small-bottom uk-margin-small-top page-nav" uk-navbar>
+                <div class="uk-navbar-left">
+                    <% if (prevLink) { %>
+                    <a uk-icon="icon: chevron-left" href="<%- prevLink %>"></a>
+                    <% } %>
+                </div>
+                <div class="uk-navbar-right">
+                    <% if (nextLink) { %>
+                    <a uk-icon="icon: chevron-right" href="<%- nextLink %>"></a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,6 @@
+common:
+  readmore: "read more"
+  empty_data: "oops, no data"
 index:
   page_title: "libpdk - The fundamental runtime framework of php language"
   get_started: "Get Started"
@@ -28,11 +31,16 @@ index:
   links_title: "Friend Links"
 manual:
   page_title: ""
+team:
+  page_title: "Meet the developer guys of libpdk project"
 blog:
-  page_title: ""
+  page_title: "Welcome visit develop blog of libpdk project"
 about:
-  page_title: ""
-  page_changelog_title: ""
+  page_title: "Detail infomation about libpdk project and qcoreteam organization"
+  page_changelog_title: "Changelog about libpdk project"
+  page_become_sponsor_title: "Help us to become a sponsor of libpdk project"
+  page_become_developer_title: "Come with us let the libpdk project better"
+  page_become_partner_title: "Become a partner and let more people know about libpdk project"
   menu_become_sponsor: "Become sponsor"
   menu_become_developer: "Become developer"
   menu_become_partner: "Become partner"

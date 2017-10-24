@@ -4,6 +4,8 @@
 let layout;
 if (page.layout) {
     layout = page.layout;
+} else if (page.__index) {
+    layout = page.layout = "index";
 } else if (page.title) {
     layout = "post";
 } else if (page._isBlogList) {
@@ -12,30 +14,33 @@ if (page.layout) {
 let title = "";
 let cssfilename = "";
 if (layout == "post") {
-    title = page.title + "-zendAPI 博客";
+    title = page.title + "- libpdk develop blog";
     cssfilename = "article.css";
 } else if (layout == "manual") {
     title = page.title + "-zendAPI 手册";
     cssfilename = "manual.css";
 } else if (page.maintype == "about") {
     if (layout == "about/index") {
-        title = "关于我们-zendAPI";
+        title = __("about.page_title");
     } else if (layout == "about/changelog"){
-        title = "项目变更大事记-zendAPI";
+        title = __("about.page_changelog_title");
     } else if (layout == "about/become_developer") {
-        title = "加入我们成为开发者-zendAPI";
+        title = __("about.page_become_developer_title")
     } else if (layout == "about/become_partner") {
-        title = "如何成为合作伙伴-zendAPI";
+        title = __("about.page_become_partner_title")
     } else if (layout == "about/become_sponsor") {
-        title = "支持我们成为赞助商-zendAPI";
+        title = __("about.page_become_sponsor_title")
     }
     cssfilename = "about.css";
-}else if (layout == "blog") {
-    cssfilename = "blog.css";
-    title = "欢迎访问 zendAPI 开发博客";
-} else if (layout == "index") {
+} else if (layout == "team") {
+    cssfilename = "team.css";
+    title = __("team.page_title");
+}  else if (layout == "index") {
     cssfilename = "index.css";
     title = __("index.page_title");
+} else if (layout == "blog") {
+    cssfilename = "blog.css";
+    title = __("blog.page_title");
 } else if (layout == "apiindex") {
     title = "欢迎访问 zendAPI 接口文档栏目";
     cssfilename = "api.css";
