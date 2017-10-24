@@ -1,3 +1,9 @@
 [submodule "tools/apigen"]
 	path = tools/apigen
 	url = libpdk:/libpdk/ApiGen.git
+[submodule "node_modules/hexo-generator-cpp-apidoc"]
+	path = node_modules/hexo-generator-cpp-apidoc
+	url = libpdk:/libpdk/hexo-generator-cpp-apidoc.git
+[submodule "node_modules/hexo-generator-php-apidoc"]
+	path = node_modules/hexo-generator-php-apidoc
+	url = libpdk:/libpdk/hexo-generator-cpp-apidoc.git

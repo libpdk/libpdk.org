@@ -3,7 +3,8 @@ Thumbs.db
 db.json
 *.log
 node_modules/
-!node_modules/hexo-apidoc-generator
+!node_modules/hexo-generator-cpp-apidoc/
+!node_modules/hexo-generator-php-apidoc/
 public/
 .deploy*/
 .idea/
