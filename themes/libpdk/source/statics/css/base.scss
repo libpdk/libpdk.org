@@ -216,6 +216,7 @@ li {
   padding: 2px 6px;
   background: #f8f8f8;
 }
+
 /**
  * site header style
  */
@@ -274,6 +275,16 @@ li {
     }
   }
 }
+.logo-img
+{
+  color: #ffffff;
+  font-size: 2.0em;
+}
+.logo-img:hover
+{
+  color: #ffffff;
+}
+
 /**
  * Site footer style
  */

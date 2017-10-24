@@ -103,10 +103,14 @@ body {
       }
 
     }
-    .libpdk-logo {
+    .zendapi-logo {
       img {
         height: 60px;
       }
+    }
+    .libpdk-logo {
+      color: $libpdk-base-color;
+      font-size: 4em;
     }
     a {
       text-decoration: underline;
@@ -116,6 +120,7 @@ body {
       line-height: 18px!important;
       font-size: 11px!important;
       margin-right: 5px!important;
+      background-color: $libpdk-base-color!important;
     }
   }
   .about-sponsor-container {

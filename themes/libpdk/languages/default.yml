@@ -32,6 +32,7 @@ blog:
   page_title: ""
 about:
   page_title: ""
+  page_changelog_title: ""
   menu_become_sponsor: "Become sponsor"
   menu_become_developer: "Become developer"
   menu_become_partner: "Become partner"

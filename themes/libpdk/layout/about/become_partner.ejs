@@ -1,0 +1,31 @@
+<div id="container" style="width: 100%;">
+    <div class="uk-container uk-margin-small-top uk-margin-small-bottom about-page-container">
+        <%- partial("_partial/sitepath", { pathList: [
+            get_site_menu_by_key("home"),
+            get_site_menu_by_key("about"),
+            {
+                name: __("index.become_partner"),
+                url: '/about/becomepartner.html'
+            }
+        ]}) %>
+        <div class="about-container">
+            <div class="uk-visible@s">
+                <ul class="uk-flex-left about-nav" data-uk-tab>
+                    <li><a href="/about"><%= __("about.menu_aboutus") %></a></li>
+                    <li><a href="/about/changelog.html"><%= __("about.menu_changelog") %></a></li>
+                    <li><a href="/about/becomesponsor.html"><%= __("about.menu_become_sponsor") %></a></li>
+                    <li><a href="/about/becomedeveloper.html"><%= __("about.menu_become_developer") %></a></li>
+                    <li class="uk-active"><a href="/about/becomepartner.html"><%= __("about.menu_become_partner") %></a></li>
+                </ul>
+            </div>
+            <div className="about-sponsors-container">
+                coming soon...
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+   $(".about-container .about-nav a").click(function(){
+      window.location.assign($(this).attr("href"));
+   });
+</script>
