@@ -14,10 +14,10 @@ if (page.layout) {
 let title = "";
 let cssfilename = "";
 if (layout == "post") {
-    title = page.title + "- libpdk develop blog";
+    title = page.title + __("post.page_title_suffix");
     cssfilename = "article.css";
 } else if (layout == "manual") {
-    title = page.title + "-zendAPI 手册";
+    title = page.title + __("about.page_title_suffix");
     cssfilename = "manual.css";
 } else if (page.maintype == "about") {
     if (layout == "about/index") {

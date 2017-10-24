@@ -7,6 +7,15 @@
     "name": "Manual",
     "url": "/manual"
   },
+  "apidoc": {
+    "name": "API",
+    "children": [
+      {
+        "name": "PHP API Docs",
+        "url": "/apidocs/php"
+      }
+    ]
+  },
   "team":{
     "name": "Team",
     "url": "/team.html"

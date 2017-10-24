@@ -49,6 +49,7 @@ $libpdk-manual-page-width: 1200px;
     }
     .manual-title {
       font-size: 1.8em;
+      font-family: $global-font-family;
       @media (min-width: 640px) {
         font-size: 2.5em;
       }

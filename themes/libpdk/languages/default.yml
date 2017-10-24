@@ -30,11 +30,13 @@ index:
   become_partner: "How to become partner"
   links_title: "Friend Links"
 manual:
-  page_title: ""
+  page_title_suffix: " - libpdk develop manual"
 team:
   page_title: "Meet the developer guys of libpdk project"
 blog:
   page_title: "Welcome visit develop blog of libpdk project"
+post: 
+  page_title_suffix: "libpdk develop blog"
 about:
   page_title: "Detail infomation about libpdk project and qcoreteam organization"
   page_changelog_title: "Changelog about libpdk project"

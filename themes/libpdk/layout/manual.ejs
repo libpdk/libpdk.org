@@ -1,0 +1,58 @@
+<%
+let content = page.content.replace(/<a\s*?href\s*=\s*['"]([^'"]+)['"]\s*?class\s*?=\s*['"]header-anchor['"].*?<\/a>/g,
+        "<a href=\"#$1\" class=\"header-anchor\">#</a>");
+let catalog = get_manual_catalog();
+%>
+<div id="container" style="width: 100%">
+    <div class="uk-container uk-margin-small-top uk-margin-small-bottom manual-page-container">
+        <div class="manual-container uk-flex uk-flex-left">
+            <div class="catalog uk-visible@m">
+                <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: false">
+                    <% for(let i in catalog) {
+                        let parent = catalog[i];
+                        let titleCls = "";
+                        if (parent.children && parent.children.length != 0) {
+                            titleCls = "uk-parent";
+                            if (parent.isOpen) {
+                                titleCls += " uk-open"
+                            }
+                        }
+                    %>
+                    <li class="<%- titleCls %>">
+                        <a><%- parent.text %></a>
+                        <% if (parent.children && parent.children.length != 0) {%>
+                        <ul class="uk-nav-sub">
+                            <% for (let j in parent.children) {
+                                let item = parent.children[j];
+                                let cls = "";
+                                if (item.isActive) {
+                                    cls = "uk-active";
+                                }
+                            %>
+                            <li class=<%- cls %>><a href="<%- item.url %>"><%- item.text %></a></li>
+                            <% } %>
+                        </ul>
+                        <% } %>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="uk-width-expand manual-doc-container">
+                <h1 class="uk-article-title manual-title"><%- page.title %></h1>
+                <div class="uk-article manual-content uk-margin-medium-bottom uk-text-break">
+                    <%- content %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+   $(function ()
+   {
+      $(document).ready(function() {
+         $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+         });
+      });
+   });
+</script>

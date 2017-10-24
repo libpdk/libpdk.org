@@ -24,27 +24,26 @@ hexo.extend.helper.register('get_manual_catalog', function(){
    let get_site_data = hexo.extend.helper.get('get_site_data');
    let targetVersion;
    if ("mainEntry" == page.subtype || "versionEntry" == page.subtype) {
-      targetVersion = config.zapi_version;
+      targetVersion = config.libpdk_version;
    } else {
       let pagePath = page.canonical_path;
       let match = pagePath.match(/manual\/([.\d]*)/);
       targetVersion = match[1];
    }
    let versionKey = "manual/v"+targetVersion.replace(/\./g, "");
-   
    let catalog = clone(get_site_data.call(this, versionKey));
    let key = manual_key_from_path.call(this, page.path);
    let baseUrl = "manual/"+targetVersion;
-
+   let context = this;
    catalog.forEach(function(category){
       if (category.children && category.children.length != 0) {
          category.children.forEach(function(item){
             if (item.key == key) {
                item.isActive = true;
                category.isOpen = true;
-               item.url = url_for.call(this, page.canonical_path);
+               item.url = url_for.call(context, page.canonical_path);
             }
-            item.url = url_for.call(this,baseUrl + "/"+ category.key + "/" + item.key + ".html");
+            item.url = url_for.call(context,baseUrl + "/"+ category.key + "/" + item.key + ".html");
          });
       }
    });

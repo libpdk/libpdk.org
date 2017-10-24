@@ -79,7 +79,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: libpdk
-
+libpdk_version: 0.0.1
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

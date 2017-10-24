@@ -237,6 +237,13 @@ li {
     padding-right: 5px!important;
     word-spacing: 20px!important;
   }
+  .dropdown-menu-item {
+    a {
+      height:30px;
+    }
+    word-spacing: normal;
+    height: 30px;
+  }
   .uk-navbar-nav > li > a{
     letter-spacing: 1px;
     padding-left: 5px!important;
@@ -256,6 +263,9 @@ li {
       -webkit-transition-property: border-bottom-color;
       transition-property: border-bottom-color;
     }
+  }
+  .uk-navbar-dropdown {
+    padding: 0;
   }
   .nav-menu {
     color: #dddddd!important;

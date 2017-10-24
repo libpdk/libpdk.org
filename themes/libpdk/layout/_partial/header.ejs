@@ -2,7 +2,7 @@
 let menuItems = get_site_menu_list();
 %>
 <div id="header-wrapper" class="uk-container uk-margin-remove uk-container-expand site-header" uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
-    <nav class="uk-navbar-container uk-margin-remove" uk-navbar>
+    <nav class="uk-navbar-container uk-margin-remove" uk-navbar="offset:-2;">
         <div class="uk-navbar-left">
             <div class="logo">
                 <a href = "/" class="logo-img">libpdk</a>
@@ -12,8 +12,26 @@ let menuItems = get_site_menu_list();
             <ul class="uk-navbar-nav uk-visible@m">
                 <%
                 for(let index in menuItems) {
+                    let item = menuItems[index];
                 %>
-                <li><a href="<%- menuItems[index].url %>"><%- menuItems[index].name %></a></li>
+                <li>
+                    <% if (!item.children) { %>
+                    <a href="<%- item.url %>"><%- item.name %></a>
+                    <% } else { %>
+                    <a><%- item.name %></a>
+                    <% } %>
+                    <% if (item.children) { %>
+                    <div class="uk-navbar-dropdown">
+                        <ul>
+                            <% for (let cindex in item.children) { 
+                            let child = item.children[cindex]
+                            %>
+                            <li class="dropdown-menu-item"><a href="<%- child.url %>"><%- child.name %></a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <% } %>
+                </li>
                 <%
                 }
                 %>

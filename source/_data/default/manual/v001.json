@@ -1,0 +1,33 @@
+[{
+  "text": "Prologue",
+  "key": "prologue",
+  "children": [{
+    "text": "Introduction",
+    "key": "introduction"
+  },{
+    "text": "Release notes",
+    "key": "releasenotes"
+  }, {
+    "text": "Git branch design",
+    "key": "repobranchdesc"
+  }, {
+    "text": "Contribution guide",
+    "key": "contributionguide"
+  }]
+}, {
+  "text": "Compilation & Deployment",
+  "key": "dependence",
+  "children": [{
+    "text": "Dependence environment",
+    "key": "dependdesc"
+  },{
+    "text": "Prepare workspace",
+    "key": "preparedevelhost"
+  },{
+    "text": "CMake Options",
+    "key": "cmakevardesc"
+  },{
+    "text": "Compile libpdk",
+    "key": "compilelibpdk"
+  }]
+}]
