@@ -473,6 +473,11 @@ $libpdk-phpapidoc-page-width: 1300px;
     padding-bottom: 5px;
     margin-left:3px;
   }
+  .implements-section-item-container {
+    .uk-grid-margin {
+      margin-top: 5px;
+    }
+  }
 }
 
 .phpapidoc-module-content-info-container
@@ -700,11 +705,15 @@ $libpdk-phpapidoc-page-width: 1300px;
   @media (min-width: 640px) {
     margin-top: 40px;
   }
-  .signature {
-    a ,span{
-      height: 23px;
-      line-height: 23px;
+  
+  .list-item {
+    margin-top: 0;
+    .signature {
+      a ,span{
+        height: 23px;
+        line-height: 23px;
+      }
+      margin-top: 5px;
     }
-    margin-left: 20px;
   }
 }
