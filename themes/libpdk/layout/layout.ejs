@@ -4,36 +4,34 @@
     <%- partial('_partial/head') %>
 </head>
 <body>
-<script type="application/javascript">
-    <%
-    let apilayouts = [
-        "apiindex",
-        "apimodules",
-        "apinamespaces",
-        "apiclasses",
-        "apiglobals",
-        "apifiles",
-        "apimodulecontent",
-        "apinamespacecontent",
-        "apifilecontent",
-        "apiclasscontent"
-    ];
-    // 嵌入导航   
-    let menuItems = site.data.category;
-    let layout;
-    if (page.layout) {
-        layout = page.layout;
-    } else if (page.title) {
-        layout = "post";
-    } else if (page._isBlogList) {
-        layout = "blog";
-    }
-    let apiCatalog = [];
-    if (_.indexOf(apilayouts, layout) != -1) {
-        apiCatalog = get_api_catalog(page, config, site);
-    }
-    %>
-</script>
+<%
+let apilayouts = [
+    "apiindex",
+    "apimodules",
+    "apinamespaces",
+    "apiclasses",
+    "apiglobals",
+    "apifiles",
+    "apimodulecontent",
+    "apinamespacecontent",
+    "apifilecontent",
+    "apiclasscontent"
+];
+// 嵌入导航   
+let menuItems = site.data.category;
+let layout;
+if (page.layout) {
+    layout = page.layout;
+} else if (page.title) {
+    layout = "post";
+} else if (page._isBlogList) {
+    layout = "blog";
+}
+let apiCatalog = [];
+if (_.indexOf(apilayouts, layout) != -1) {
+    apiCatalog = get_api_catalog(page, config, site);
+}
+%>
 <div class="uk-offcanvas-content">
     <%- partial("_partial/header") %>
     <%- body %>

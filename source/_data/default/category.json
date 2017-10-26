@@ -5,14 +5,14 @@
   },
   "manual": {
     "name": "Manual",
-    "url": "/manual"
+    "url": "/manual/index.html"
   },
   "apidoc": {
     "name": "API",
     "children": [
       {
         "name": "PHP API Docs",
-        "url": "/apidocs/php"
+        "url": "/apidocs/php/index.html"
       }
     ]
   },
@@ -22,10 +22,10 @@
   },
   "blog": {
     "name": "Blog",
-    "url": "/blog"
+    "url": "/blog/index.html"
   },
   "about":{
     "name": "About",
-    "url": "/about"
+    "url": "/about/index.html"
   }
 }
