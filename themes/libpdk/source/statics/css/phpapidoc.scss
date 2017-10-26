@@ -136,7 +136,7 @@ $libpdk-phpapidoc-page-width: 1300px;
       padding: 0;
     }
     @media (min-width: 640px) {
-      margin-bottom: 20px!important;
+      margin-bottom: 15px!important;
     }
   }
   .nav-path-grid {
@@ -146,6 +146,7 @@ $libpdk-phpapidoc-page-width: 1300px;
       a {
         margin-left: 2px;
       }
+      margin-bottom: 10px!important;
     }
   }
 
@@ -451,9 +452,6 @@ $libpdk-phpapidoc-page-width: 1300px;
   .title {
     margin: 0!important;
     padding: 0!important;
-    @media (min-width: 640px) {
-      margin-top: 15px!important;
-    }
   }
 }
 
