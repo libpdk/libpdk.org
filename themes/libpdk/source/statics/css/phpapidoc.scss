@@ -135,6 +135,9 @@ $libpdk-phpapidoc-page-width: 1300px;
       margin: 0;
       padding: 0;
     }
+    @media (min-width: 640px) {
+      margin-bottom: 20px!important;
+    }
   }
   .nav-path-grid {
     div {
@@ -144,7 +147,6 @@ $libpdk-phpapidoc-page-width: 1300px;
         margin-left: 2px;
       }
     }
-    margin-bottom: 20px!important;
   }
 
   .tags-container {
@@ -153,6 +155,12 @@ $libpdk-phpapidoc-page-width: 1300px;
       line-height: 17px !important;
       font-size: 10px !important;
       margin-right: 5px !important;
+      a {
+        color: #ffffff;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
@@ -447,19 +455,25 @@ $libpdk-phpapidoc-page-width: 1300px;
       margin-top: 15px!important;
     }
   }
+}
+
+.phpapidoc-interface-content-info-container
+{
+  a {
+    font-size: 1.1em;
+  }
+  .title {
+    margin: 0!important;
+    padding: 0!important;
+    @media (min-width: 640px) {
+      margin-top: 5px!important;
+    }
+  }
   .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
     padding-bottom: 5px;
     margin-left:3px;
   }
-  .include-files {
-    padding-left: 0;
-    li {
-      padding-bottom: 5px;
-    }
-  }
 }
-
 
 .phpapidoc-module-content-info-container
 {
@@ -499,10 +513,20 @@ $libpdk-phpapidoc-page-width: 1300px;
     margin: 0!important;
     padding: 0!important;
   }
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
+  .parameter-container {
+    .uk-label {
+      text-transform:none;
+    }
+    .property-name {
+      color: $libpdk-base-color;
+    }
+    padding-bottom: 20px;
+    .description {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom:1px dotted $libpdk-border-color;
+    }
   }
 }
 
@@ -650,69 +674,37 @@ $libpdk-phpapidoc-page-width: 1300px;
   }
 }
 
-.class-section-item-container {
+/**
+ * class sections style
+ */
+
+.class-const-section-container {
   margin-top: 20px;
   @media (min-width: 640px) {
     margin-top: 40px;
   }
-  .uk-grid-small > * {
-    padding-left: 1px!important;
-    padding-right: 1px!important;
-  }
-  .uk-table td{
-    padding-left: 0;
-  }
-  .inherits-container {
-    .inherit-item {
-      .uk-accordion-title {
-        font-size: 1.2em!important;
-        span {
-          width:90%!important;
-          @media (min-width: 640px) {
-            width:95%!important;
-          }
-          display: inline-block;
-        }
-      }
+  .const-define {
+    a ,span{
+      height: 23px;
+      line-height: 23px;
     }
+    margin-left: 20px;
+  }
+  .constant-name {
+    margin-top:5px;
   }
 }
 
-/**
- * class sections style
- */
-.class-info-section-item-container {
-  .uk-label {
-    margin-right: 5px!important;
-    margin-left: 0!important;
-    @media (min-width: 640px) {
-      margin-left: 5px!important;
-      margin-right: 0!important;
-    }
+.class-method-section-container {
+  margin-top: 20px;
+  @media (min-width: 640px) {
+    margin-top: 40px;
   }
-  .section-item-name {
-    span {
-      font-weight: bold!important;
+  .signature {
+    a ,span{
+      height: 23px;
+      line-height: 23px;
     }
-  }
-}
-
-.phpapidoc-class-content-page {
-  .type-class-section-item-container {
-    .define {
-      margin-bottom: 5px;
-      font-size: 1em!important;
-    }
-  }
-  .method-class-section-item-container {
-    .signature {
-      margin-top: 5px!important;
-    }
-  }
-  .attribute-class-section-item-container {
-    .define {
-      margin-bottom: 5px;
-      font-size: 1em!important;
-    }
+    margin-left: 20px;
   }
 }
