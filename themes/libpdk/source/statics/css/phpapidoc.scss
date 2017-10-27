@@ -720,15 +720,25 @@ $libpdk-phpapidoc-page-width: 1300px;
   @media (min-width: 640px) {
     margin-top: 40px;
   }
-  
+
   .list-item {
     margin-top: 0;
     .signature {
       a ,span{
         height: 23px;
         line-height: 23px;
+        display: inline-block;
       }
       margin-top: 5px;
+      .return-type{
+        a {
+          color: #1e87f0!important;
+          &:hover {
+            color: $libpdk-link-hover-color!important;
+          }
+          margin-top: 1px;
+        }
+      }
     }
   }
 }
@@ -747,5 +757,59 @@ $libpdk-phpapidoc-page-width: 1300px;
   }
   .propertyant-name {
     margin-top:5px;
+  }
+}
+.class-trait-property-section-container {
+  margin-top: 20px;
+  @media (min-width: 640px) {
+    margin-top: 40px;
+  }
+  .property-define {
+    a ,span{
+      height: 23px;
+      line-height: 23px;
+    }
+    margin-left: 20px;
+  }
+  .property-name {
+    margin-top:0;
+  }
+  .from-trait-head {
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  .list-item {
+    margin-top: 0!important;
+  }
+}
+
+.class-trait-method-section-container {
+  margin-top: 20px;
+  @media (min-width: 640px) {
+    margin-top: 40px;
+  }
+  .list-item {
+    margin-top: 0;
+    .signature {
+      a ,span{
+        height: 23px;
+        line-height: 23px;
+        display: inline-block;
+      }
+      margin-top: 0;
+      .return-type{
+        a {
+          color: #1e87f0!important;
+          &:hover {
+            color: $libpdk-link-hover-color!important;
+          }
+          margin-top: 1px;
+        }
+      }
+    }
+  }
+  .from-trait-head {
+    margin-bottom: 10px;
+    margin-top: 20px;
   }
 }
