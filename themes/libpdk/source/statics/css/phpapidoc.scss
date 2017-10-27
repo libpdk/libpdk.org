@@ -146,8 +146,8 @@ $libpdk-phpapidoc-page-width: 1300px;
       a {
         margin-left: 2px;
       }
-      margin-bottom: 10px!important;
     }
+    margin-bottom: 10px;
   }
 
   .tags-container {
@@ -523,11 +523,14 @@ $libpdk-phpapidoc-page-width: 1300px;
       margin-top: 15px!important;
     }
   }
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
+  .class-section-container{
+    .uk-grid {
+      border-bottom: 1px solid #e5e5e5!important;
+      padding-bottom: 5px;
+      margin-left:3px;
+    }
   }
+  
 }
 
 .phpapidoc-function-content-info-container
@@ -832,6 +835,43 @@ $libpdk-phpapidoc-page-width: 1300px;
   }
   .constant-name {
     margin-top:5px;
+    font-size: 1.4em;
+  }
+  .defined-file-location {
+    margin-top: 0!important;
+  }
+}
+
+.class-property-info-section-container {
+  margin-top: 20px;
+  @media (min-width: 640px) {
+    margin-top: 40px;
+  }
+  .property-define {
+    a ,span{
+      height: 23px;
+      line-height: 23px;
+    }
+    margin-left: 20px;
+  }
+  .property-name ,.uk-grid-margin{
+    margin-top: 0 !important;
+  }
+  .property-name {
+    font-size: 1.4em;
+  }
+  .defined-file-location {
+    margin-top: 0!important;
+  }
+}
+
+.class-method-info-section-container {
+  margin-top: 20px;
+  @media (min-width: 640px) {
+    margin-top: 40px;
+  }
+  .signature {
+    margin-top: 0!important;
   }
   .defined-file-location {
     margin-top: 0!important;
