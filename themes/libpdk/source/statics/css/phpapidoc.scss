@@ -870,10 +870,37 @@ $libpdk-phpapidoc-page-width: 1300px;
   @media (min-width: 640px) {
     margin-top: 40px;
   }
+  .method-name {
+    font-size: 1.4em;
+  }
   .signature {
-    margin-top: 0!important;
+    margin-top: 10px;
+    background: #f8f8f8;
+    margin-bottom: 10px;
+    padding:8px;
   }
   .defined-file-location {
     margin-top: 0!important;
+  }
+  .list-item {
+    margin-bottom: 20px;
+  }
+  .return-info-container
+  {
+    h6 {
+      margin: 0;
+      margin-bottom: 10px;
+      padding:0;
+    }
+  }
+  .parameter-item {
+    .param-text {
+      font-size:1.2em;
+    }
+    .property-name {
+    }
+    .description {
+      font-size: 1em;
+    }
   }
 }
