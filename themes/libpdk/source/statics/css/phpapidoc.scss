@@ -816,3 +816,24 @@ $libpdk-phpapidoc-page-width: 1300px;
     margin-top: 20px;
   }
 }
+
+.class-const-info-section-container
+{
+  margin-top: 20px;
+  @media (min-width: 640px) {
+    margin-top: 40px;
+  }
+  .const-define {
+    a ,span{
+      height: 23px;
+      line-height: 23px;
+    }
+    margin-left: 20px;
+  }
+  .constant-name {
+    margin-top:5px;
+  }
+  .defined-file-location {
+    margin-top: 0!important;
+  }
+}
