@@ -458,6 +458,9 @@ $libpdk-phpapidoc-page-width: 1300px;
     margin-left:3px;
   }
   .implements-section-item-container {
+    .list-item {
+      margin-top: 0;
+    }
     .uk-grid-margin {
       margin-top: 5px;
     }
@@ -654,7 +657,7 @@ $libpdk-phpapidoc-page-width: 1300px;
     margin-top: 40px;
   }
   .signature {
-    margin-top: 5px!important;
+    margin-top: 0!important;
   }
 }
 
@@ -729,7 +732,7 @@ $libpdk-phpapidoc-page-width: 1300px;
         line-height: 23px;
         display: inline-block;
       }
-      margin-top: 5px;
+      margin-top: 0;
       .return-type{
         a {
           color: #1e87f0!important;
@@ -755,8 +758,8 @@ $libpdk-phpapidoc-page-width: 1300px;
     }
     margin-left: 20px;
   }
-  .propertyant-name {
-    margin-top:5px;
+  .propertyant-name ,.uk-grid-margin{
+    margin-top: 0 !important;
   }
 }
 .class-trait-property-section-container {
