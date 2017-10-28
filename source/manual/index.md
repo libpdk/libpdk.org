@@ -1,6 +1,6 @@
 ---
 layout: manual
 subtype: mainEntry
-title: libpdk project brif introdction
+title: libpdk project brief introdction
 ---
-libpdk project brif introdction
+libpdk project brief introdction
