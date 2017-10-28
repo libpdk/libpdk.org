@@ -213,8 +213,6 @@ $libpdk-phpapidoc-page-width: 1300px;
   }
   .uk-grid {
     border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
   }
 }
 
@@ -398,7 +396,10 @@ $libpdk-phpapidoc-page-width: 1300px;
     height: 35px;
     line-height: 35px;
   }
-
+  .uk-grid {
+    padding-bottom: 5px;
+    margin-left:3px;
+  }
   .tags {
     line-height: 30px;
     height: 30px;
@@ -453,10 +454,6 @@ $libpdk-phpapidoc-page-width: 1300px;
     margin: 0!important;
     padding: 0!important;
   }
-  .uk-grid {
-    padding-bottom: 5px;
-    margin-left:3px;
-  }
   .implements-section-item-container {
     .list-item {
       margin-top: 0;
@@ -487,10 +484,6 @@ $libpdk-phpapidoc-page-width: 1300px;
       margin-top: 5px!important;
     }
   }
-  .uk-grid {
-    padding-bottom: 5px;
-    margin-left:3px;
-  }
   .implements-section-item-container {
     .uk-grid-margin {
       margin-top: 5px;
@@ -509,8 +502,6 @@ $libpdk-phpapidoc-page-width: 1300px;
   }
   .uk-grid {
     border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
   }
 }
 
@@ -526,11 +517,13 @@ $libpdk-phpapidoc-page-width: 1300px;
   .class-section-container{
     .uk-grid {
       border-bottom: 1px solid #e5e5e5!important;
-      padding-bottom: 5px;
-      margin-left:3px;
     }
   }
-  
+  .namespace-section-container {
+    .uk-grid {
+      border-bottom: 1px solid #e5e5e5!important;
+    }
+  }
 }
 
 .phpapidoc-function-content-info-container
