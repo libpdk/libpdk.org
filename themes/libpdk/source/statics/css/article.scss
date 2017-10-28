@@ -33,10 +33,11 @@ body {
   }
   .article-content {
     margin-top: 20px;
-    font-size:1.3em;
-    line-height: 2em;
+    font-size:1.2em;
     @media (min-width: 640px) {
       margin-top: 30px;
+      line-height: 2em;
+      font-size:1.3em;
     }
     pre {
       padding: 0!important;

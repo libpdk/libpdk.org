@@ -36,7 +36,8 @@ let nextLink = page.next_link == "" ? null : url_for(page.next_link);
                 </div>
                 <% } %>
                 <div>
-                    <button class="uk-button uk-button-default goto-detail-btn uk-margin-medium-top">
+                    <button class="uk-button uk-button-default goto-detail-btn uk-margin-medium-top"
+                    onclick="window.location.assign('<%- info.link %>')">
                         <%= __("common.readmore") %></button>
                 </div>
             </div>
