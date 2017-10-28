@@ -3,9 +3,20 @@ let menuItems = get_site_menu_list();
 %>
 <ul class = "uk-text-left uk-width-1-1">
     <% for (var i = 0; i < menuItems.length; i++) {
-        let name = menuItems[i].name;
-        let url = menuItems[i].url;
+        let item = menuItems[i];
+        let name = item.name;
+        let url = item.url;
     %>
     <li class="uk-width-1-1"><a href = "<%- url %>"><%- name %></a></li>
+    <% if (item.children) {
+            for (let ci in item.children) {
+               let citem = item.children[ci];
+    %>
+    <li style="padding-left: 15px;font-size: 0.9em">
+        <a href="<%- citem.url %>"><%- citem.name %></a>
+    </li>
+    <%
+    }
+    } %>
     <% } %>
 </ul>
