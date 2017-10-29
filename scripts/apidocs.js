@@ -19,10 +19,10 @@ hexo.extend.helper.register("get_temp_dir", get_temp_dir);
 
 hexo.extend.helper.register("get_php_apidoc_saved_dir",function get_php_apidoc_saved_dir()
 {
-   return get_root_dir() + "/public/api/php";
+   return get_root_dir() + "/public/apidocs/php";
 });
 
 hexo.extend.helper.register("get_cpp_apidoc_saved_dir",function get_cpp_apidoc_saved_dir()
 {
-   return get_root_dir() + "/public/api/cpp";
+   return get_root_dir() + "/public/apidocs/cpp";
 });

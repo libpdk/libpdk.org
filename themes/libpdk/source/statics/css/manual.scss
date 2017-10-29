@@ -85,12 +85,19 @@ $libpdk-manual-page-width: 1200px;
     }
   }
   .catalog {
-    width: 220px;
+    width: 250px;
     padding: 20px;
     margin-right: 30px;
     background-color: #ffffff;
+    .manual-chapter-header {
+      font-weight: bold;
+      color: #3f3d3d;
+    }
     .uk-active a{
       color: $libpdk-base-color!important;
+    }
+    a {
+      font-size: 0.9em!important;
     }
   }
 }

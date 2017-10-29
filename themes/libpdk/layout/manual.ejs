@@ -19,7 +19,7 @@ let catalog = get_manual_catalog();
                         }
                     %>
                     <li class="<%- titleCls %>">
-                        <a><%- parent.text %></a>
+                        <a class="manual-chapter-header"><%- parent.text %></a>
                         <% if (parent.children && parent.children.length != 0) {%>
                         <ul class="uk-nav-sub">
                             <% for (let j in parent.children) {
