@@ -242,7 +242,7 @@ function render_variables(vars)
             <div class="uk-nav-default uk-nav-parent-icon uk-width-expand cppapidoc-info-container cppapidoc-globals-info-container" data-uk-nav>
                 <% if (apiGlobalData.classes.length > 0) { %>
                 <li class="uk-parent uk-open">
-                    <a class="uk-width-1-1 title uk-active">全局类定义</a>
+                    <a class="uk-width-1-1 title uk-active"><%= __("cppapidoc.globals.global_classes") %></a>
                     <ul class="uk-nav-sub uk-margin-small-bottom">
                         <% render_classes(apiGlobalData.classes) %>
                     </ul>
@@ -250,7 +250,7 @@ function render_variables(vars)
                 <% } %>
                 <% if (apiGlobalData.structs.length ) { %>
                 <li class="uk-parent">
-                    <a class="uk-width-1-1 title uk-active">全局结构定义</a>
+                    <a class="uk-width-1-1 title uk-active"><%= __("cppapidoc.globals.global_structs") %></a>
                     <ul class="uk-nav-sub uk-margin-small-bottom">
                         <% render_classes(apiGlobalData.structs) %>
                     </ul>
@@ -259,7 +259,7 @@ function render_variables(vars)
 
                 <% if (apiGlobalData.enums.length ) { %>
                 <li class="uk-parent">
-                    <a class="uk-width-1-1 title uk-active">全局枚举定义</a>
+                    <a class="uk-width-1-1 title uk-active"><%= __("cppapidoc.globals.global_enums") %></a>
                     <ul class="uk-nav-sub uk-margin-small-bottom">
                         <% render_enums(apiGlobalData.enums) %>
                     </ul>
@@ -268,7 +268,7 @@ function render_variables(vars)
 
                 <% if (apiGlobalData.defines.length ) { %>
                 <li class="uk-parent">
-                    <a class="uk-width-1-1 title uk-active">全局宏定义</a>
+                    <a class="uk-width-1-1 title uk-active"><%= __("cppapidoc.globals.global_macros") %></a>
                     <ul class="uk-nav-sub uk-margin-small-bottom">
                         <% render_macros(apiGlobalData.defines) %>
                     </ul>
@@ -277,7 +277,7 @@ function render_variables(vars)
 
                 <% if (apiGlobalData.funcs.length ) { %>
                 <li class="uk-parent">
-                    <a class="uk-width-1-1 title uk-active">全局函数定义</a>
+                    <a class="uk-width-1-1 title uk-active"><%= __("cppapidoc.globals.global_functions") %></a>
                     <ul class="uk-nav-sub uk-margin-small-bottom">
                         <% render_funcs(apiGlobalData.funcs)%>
                     </ul>
@@ -286,7 +286,7 @@ function render_variables(vars)
 
                 <% if (apiGlobalData.variables.length ) { %>
                 <li class="uk-parent">
-                    <a class="uk-width-1-1 title uk-active">全局变量/常量定义</a>
+                    <a class="uk-width-1-1 title uk-active"><%= __("cppapidoc.globals.global_const_and_var") %></a>
                     <ul class="uk-nav-sub uk-margin-small-bottom">
                         <% render_variables(apiGlobalData.variables) %>
                     </ul>

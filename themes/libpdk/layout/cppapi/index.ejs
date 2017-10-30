@@ -23,7 +23,7 @@ let moduleList = generate_flat_module_list(moduleModels, 0, "");
             <div class="uk-width-expand cppapidoc-info-container cppapidoc-index-info-container">
                 <div class="module-entry">
                     <div class="title">
-                        <img src="/statics/images/apidocs/cpp/module.svg"/><h3 class="uk-width-expand">模块列表</h3>
+                        <img src="/statics/images/apidocs/cpp/module.svg"/><h3 class="uk-width-expand"><%= __("cppapidoc.index.module_list")%></h3>
                     </div>
                     <ul>
                         <% for (let i in moduleList) {
@@ -35,7 +35,7 @@ let moduleList = generate_flat_module_list(moduleModels, 0, "");
                 </div>
                 <div class="namespace-entry uk-margin-medium-top">
                     <div class="title">
-                        <img src="/statics/images/apidocs/cpp/namespace.svg"/><h3>名称空间列表</h3>
+                        <img src="/statics/images/apidocs/cpp/namespace.svg"/><h3><%= __("cppapidoc.index.namespace_list")%></h3>
                     </div>
                     <ul>
                         <% for (let i in namespaces) {

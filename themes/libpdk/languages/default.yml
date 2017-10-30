@@ -64,3 +64,17 @@ about:
   menu_become_partner: "Become partner"
   menu_changelog: "Changelog"
   menu_aboutus: "About us"
+cppapidoc:
+  index:
+    page_title: ""
+    module_list: "Module List"
+    namespace_list: "Namespace List"
+  globals:
+    page_title: ""
+    global_classes: "Global Classes"
+    global_structs: "Global Structs"
+    global_macros: "Global Macros"
+    global_enums: "Global Enums"
+    global_functions: "Global Functions"
+    global_const_and_var: "Global Constants & Variables"
+    
