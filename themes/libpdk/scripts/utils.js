@@ -24,7 +24,7 @@ hexo.extend.helper.register('get_manual_catalog', function(){
    let get_site_data = hexo.extend.helper.get('get_site_data');
    let targetVersion;
    if ("mainEntry" == page.subtype || "versionEntry" == page.subtype) {
-      targetVersion = config.libpdk_version;
+      targetVersion = config.project_version;
    } else {
       let pagePath = page.canonical_path;
       let match = pagePath.match(/manual\/([.\d]*)/);
@@ -73,16 +73,16 @@ hexo.extend.helper.register('get_api_catalog', function(page, config, site){
          key: key,
          isActive: false
       };
-      if (key == "apimodules") {
-         if (page.layout == "apimodulecontent" || page.layout == "apimodules") {
+      if (key == "cppapimodules") {
+         if (page.layout == "cppapimodulecontent" || page.layout == "cppapimodules") {
             ret.isActive = true;
          }
-      } else if (key == "apinamespaces") {
-         if (page.layout == "apinamespacecontent" || page.layout == "apinamespaces" || page.layout == "apiclasscontent") {
+      } else if (key == "cppapinamespaces") {
+         if (page.layout == "cppapinamespacecontent" || page.layout == "cppapinamespaces" || page.layout == "cppapiclasscontent") {
             ret.isActive = true;
          }
-      } else if (key == "apifiles") {
-         if (page.layout == "apifilecontent" || page.layout == "apifiles") {
+      } else if (key == "cppapifiles") {
+         if (page.layout == "cppapifilecontent" || page.layout == "cppapifiles") {
             ret.isActive = true;
          }
       } else if (key == page.layout) {

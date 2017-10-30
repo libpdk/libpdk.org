@@ -13,6 +13,10 @@
       {
         "name": "PHP API Docs",
         "url": "/apidocs/php/index.html"
+      },
+      {
+        "name": "CPP API Docs",
+        "url": "/apidocs/cpp/index.html"
       }
     ]
   },

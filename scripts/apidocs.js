@@ -22,7 +22,3 @@ hexo.extend.helper.register("get_php_apidoc_saved_dir",function get_php_apidoc_s
    return get_root_dir() + "/public/apidocs/php";
 });
 
-hexo.extend.helper.register("get_cpp_apidoc_saved_dir",function get_cpp_apidoc_saved_dir()
-{
-   return get_root_dir() + "/public/apidocs/cpp";
-});

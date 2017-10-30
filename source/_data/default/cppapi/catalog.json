@@ -1,0 +1,27 @@
+{
+  "cppapiindex" : {
+    "name": "API手册首页",
+    "url": "index.html",
+    "icon": "home.svg"
+  },
+  "cppapimodules" : {
+    "name": "模块分类",
+    "url": "modules.html",
+    "icon": "module.svg"
+  },
+  "cppapinamespaces" : {
+    "name": "名称空间分类",
+    "url": "namespaces.html",
+    "icon": "namespace.svg"
+  },
+  "cppapiglobals" : {
+    "name": "全局定义",
+    "url": "globals.html",
+    "icon": "global.svg"
+  },
+  "cppapifiles" : {
+    "name": "所有头文件",
+    "url": "files.html",
+    "icon": "files.svg"
+  }
+}

@@ -3,6 +3,7 @@ common:
   empty_data: "oops, no data"
 index:
   page_title: "libpdk - The fundamental runtime framework of php language"
+  slogan: "The fundamental runtime framework of php language"
   get_started: "Get Started"
   gitee_repo: "Gitee Repo"
   github_repo: "Github Repo"

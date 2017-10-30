@@ -1,0 +1,37 @@
+<%
+let cls = "";
+if (funcs.length != 0 ) {
+    cls = "section-item-container func-section-container";
+} else {
+    cls = "uk-hidden";
+}
+%>
+<div class="<%- cls %>">
+    <h3>函数列表</h3>
+    <% for (let i in funcs) {
+        let item = funcs[i];
+    %>
+    <div class="uk-grid-small list-item" uk-grid>
+        <% if (item.tags.length > 0) { %>
+        <div class="uk-width-1-1 uk-text-break">
+            <% for (let tagIndex in item.tags) {
+                let tag = item.tags[tagIndex];
+            %>
+            <span class="uk-label uk-label-success"><%- tag %></span>
+            <% } %>
+        </div>
+        <% } %>
+        <% if (item.isTemplate) { %>
+        <div class="uk-width-1-1 tpl-params">
+            template &lt;<%- item.tplParamsString %>&gt;
+        </div>
+        <% } %>
+        <div class="uk-width-1-1 uk-text-break signature">
+            <%- showSimpleName?item.simpleSignature:item.signature %>
+        </div>
+        <div class="uk-width-1-1 uk-width-3-4@s uk-text-break">
+            <span><%- item.briefDescription %></span>
+        </div>
+    </div>
+    <% } %>
+</div>

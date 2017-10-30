@@ -1,0 +1,21 @@
+<%
+let cls = "";
+if (modules.length != 0 ) {
+    cls = "section-item-container module-section-container";
+} else {
+    cls = "uk-hidden";
+}
+%>
+<div class="<%- cls %>">
+    <h3>子模块列表</h3>
+    <% for (let i in modules) {
+        let item = modules[i];
+    %>
+    <div class="uk-grid-small list-item" uk-grid>
+        <div class="uk-width-1-1 uk-width-1-4@s"><a class="uk-text-break" href = "<%- item.url %>"><%- item.name %></a></div>
+        <div class="uk-width-1-1 uk-width-3-4@s">
+            <span><%- item.briefDescription %></span>
+        </div>
+    </div>
+    <% } %>
+</div>

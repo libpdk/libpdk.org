@@ -1,0 +1,64 @@
+<%
+let cls = "";
+if (types && types.length != 0) {
+    cls = "type-class-section-item-container class-section-item-container";
+} else {
+    cls = "uk-hidden";
+}
+let showSimpleName = true;
+%>
+<%
+function render_types(types, showSimpleName)
+{
+%>
+<% for (let i in types) {
+    let item = types[i];
+%>
+<div class="uk-grid-small list-item" data-uk-grid>
+    <div class="uk-width-1-1">
+        <div class="define uk-text-break">
+            <% if (showSimpleName) { %>
+            <%- item.simpleDefinition %>
+            <% } else { %>
+            <%- item.definition %>
+            <% } %>
+        </div>
+        <div class="uk-text-break">
+            <%- item.briefDescription %>
+        </div>
+    </div>
+</div>
+<% } %>
+<% } %>
+
+<div class="<%- cls %>">
+    <div class="section-title uk-margin-medium-bottom">
+        <h3><%- title %></h3>
+    </div>
+    <% if (types.length > 0) { %>
+    <% render_types(types, showSimpleName) %>
+    <% } %>
+    <% if (inherits) { %>
+    <ul data-uk-accordion="multiple: true" class="uk-margin-medium-top inherits-container">
+        <% for (let baseClsIndex in baseClasses) {
+            let baseCls = baseClasses[baseClsIndex];
+            let key = baseCls.name;
+        if (inherits[key]) {
+        %>
+        <li class="inherit-item">
+            <div class="uk-accordion-title uk-width-1-1 uk-text-middle uk-text-left">
+               <span class="uk-text-break">
+                  查看继承自 <%- key %> 类的类型
+               </span>
+            </div>
+            <div class="uk-accordion-content">
+                <% render_types(inherits[key], true) %>
+            </div>
+        </li>
+        <%
+        }
+        }
+        %>
+    </ul>
+    <% } %>
+</div>

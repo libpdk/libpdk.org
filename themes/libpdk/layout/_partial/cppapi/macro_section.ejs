@@ -1,0 +1,29 @@
+<%
+let cls = "";
+if (defines.length != 0 ) {
+    cls = "section-item-container macro-section-container";
+} else {
+    cls = "uk-hidden";
+}
+%>
+<div class="<%- cls %>">
+    <h3>宏定义列表</h3>
+    <% for (let i in defines) {
+        let item = defines[i];
+    %>
+    <div class="uk-grid-small list-item" uk-grid>
+        <div class="uk-width-1-1 uk-text-break name">
+            <a class="uk-text-break page-scroll-trigger" href = "<%- item.url %>"><%- item.name %></a>
+            <% if (item.params && item.params.length > 0) { %>
+            <span> (<%- item.params %>)</span>
+            <% } %>
+            <% if (item.initializer && item.initializer.indexOf("\n") == -1) { %>
+            <span class="define uk-text-break uk-text-primary"><%- item.initializer %></span>
+            <% } %>
+        </div>
+        <div class="uk-width-1-1">
+            <div class="uk-text-break"><%- item.briefDescription %></div>
+        </div>
+    </div>
+    <% } %>
+</div>

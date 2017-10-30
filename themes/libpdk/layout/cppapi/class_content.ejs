@@ -1,0 +1,356 @@
+<%
+let cls = clone(page.cls);
+let classes = page.classes;
+let files = page.files;
+
+if (cls.includes) {
+    setup_cls_includes(cls);
+}
+sort_cls_methods(cls);
+
+function setup_cls_includes(cls)
+{
+    let sincludes = cls.includes;
+    cls.includes = includes = sincludes.map(function (include)
+    {
+        let file = files[include.refid];
+        if (file) {
+            let path = file.location.file.substring(8);
+            let local = true;
+            if (!_.startsWith(path, "zapi")) {
+                local = false;
+            }
+            return {
+                name: file.location.file.substring(8),
+                url: url_for_api_entity(include.refid),
+                local: local
+            };
+        }
+        return include;
+    });
+}
+
+function sort_cls_methods(cls)
+{
+    let clsSimpleName = cls.simpleName;
+    let constructorName = clsSimpleName.replace(/<.*?>/g, '');
+    let desctructorName = '~'+constructorName;
+    let special = [constructorName, desctructorName];
+    let funcsSortProps = ["publicFuncs", "protectedFuncs", "publicStaticFuncs", "protectedStaticFuncs"];
+    let attributesSortProps = ["publicAttributes", "protectedAttributes", "publicStaticAttributes", "protectedStaticAttributes"];
+    funcsSortProps.map(function (prop)
+    {
+        if (cls[prop] && is_array(cls[prop])) {
+            cls[prop].sort(function (left, right) {
+                let leftName = left.simpleName;
+                let rightName = right.simpleName;
+                if (_.indexOf(special, leftName) != -1 && _.indexOf(special, rightName) != -1) {
+                    if (leftName == desctructorName && rightName == constructorName) {
+                        return 1;
+                    } else if (leftName == constructorName && rightName == desctructorName) {
+                        return -1;
+                    }
+                    return 0;
+                } else if (_.indexOf(special, leftName) != -1 && _.indexOf(special, rightName) == -1) {
+                    return -1;
+                } else if (_.indexOf(special, leftName) == -1 && _.indexOf(special, rightName) != -1) {
+                    return 1;
+                } else {
+                    // 按照字母表排序呢
+                    if (leftName < rightName) {
+                        return -1;
+                    } else if (leftName == rightName) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+                }
+            });
+        }
+    });
+
+    attributesSortProps.map(function (prop)
+    {
+        if (cls[prop] && is_array(cls[prop])) {
+            cls[prop].sort(function (left, right) {
+                let leftName = left.simpleName;
+                let rightName = right.simpleName;
+                // 按照字母表排序呢
+                if (leftName < rightName) {
+                    return -1;
+                } else if (leftName == rightName) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            });
+        }
+    });
+}
+
+function get_constructor_and_destructors(cls)
+{
+    let ret = [];
+    // 暂时就考虑 public 和 protected
+    do_get_constructor_and_destructors(cls.publicFuncs || [], ret);
+    do_get_constructor_and_destructors(cls.protectedFuncs || [], ret);
+    return ret;
+}
+
+function do_get_constructor_and_destructors(funcs, ret)
+{
+    funcs.map(function(item) {
+        if (item.isConstructor || item.isDestructor) {
+            ret.push(item);
+        }
+    });
+    // 排序
+    ret.sort(function(left, right) {
+        if (left.isConstructor && right.isDestructor) {
+            let l = left.definition + left.argsstring;
+            let r = right.definition + right.argsstring;
+            if (l < r) {
+                return -1;
+            } else if (l == r) {
+                return 0;
+            } else {
+                return 1;
+            }
+        } else if (left.isConstructor && right.isDestructor) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
+}
+
+let inherits = cls.inherits;
+let publicFuncInherits = inherits["public-func"] || {};
+let publicStaticFuncInherits = inherits["public-static-func"] || {};
+let protectedFuncInherits = inherits["protected-func"] || {};
+let protectedStaticFuncInherits = inherits["protected-static-func"] || {};
+let publicAttrsInherits = inherits["public-attrib"] || {};
+let publicStaticAttrsInherits = inherits["public-static-attrib"] || {};
+let protectedAttrsInherits = inherits["protected-attrib"] || {};
+let protectedStaticAttrsInherits = inherits["protected-static-attrib"] || {};
+let publicTypes = inherits["public-type"] || {};
+let protectedTypes = inherits["protected-type"] || {};
+let constructorAndDestructors = get_constructor_and_destructors(cls);
+%>
+<div id="container" style="width: 100%">
+    <div class="uk-container uk-margin-small-top uk-margin-small-bottom cppapidoc-page-container cppapidoc-class-content-page">
+        <div class="manual-container uk-flex uk-flex-left">
+            <div class="side-panel-container uk-visible@m">
+                <%- partial("_partial/cppapi/sidepanel") %>
+            </div>
+            <div class="uk-width-expand cppapidoc-info-container cppapidoc-class-content-info-container">
+                <h3 class="title uk-text-break"><%- cls.name %></h3>
+                <% if (cls.includes && cls.includes.length > 0) { %>
+                <ul class="include-files">
+                    <% for (let includeIndex in cls.includes) { 
+                    let item = cls.includes[includeIndex];
+                    %>
+                    <li class="uk-text-break">
+                        #include <%- item.local ? '"' : "<" %>
+                        <% if (item.url) { %>
+                        <a href={include.url}><%- item.name %></a>:<span><%- item.name %></span>
+                        <% } %>
+                        <%- item.local ? '"': ">" %>
+                    </li>
+                    <% } %>
+                </ul>
+                <% } %>
+                <% if (cls.briefDescription.trim() != "") { %>
+                <div class="uk-text-small uk-text-break uk-margin-small-bottom uk-margin-small-top">
+                    <%- cls.briefDescription.trim() %>
+                </div>
+                <% } %>
+                <% if (cls.detailDescription.trim() != "") { %>
+                <div class="uk-text-small detail-description uk-margin-small-bottom uk-margin-small-top">
+                    <%- cls.detailDescription.trim() %>
+                </div>
+                <% } %>
+                <%- partial("_partial/cppapi/class/base_class_section", {
+                    baseClasses: cls.baseClasses
+                }) %>
+                <%- partial("_partial/cppapi/class/type_section", {
+                    title: "公有类型列表",
+                    types: cls.publicTypes || [],
+                    inherits: publicTypes || {}, 
+                    baseClasses: cls.baseClasses || []
+                }) %>
+                <%- partial("_partial/cppapi/class/method_section", {
+                    title: "公有方法列表",
+                    methods: cls.publicFuncs || [],
+                    inherits: publicFuncInherits || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+                
+                <%- partial("_partial/cppapi/class/method_section", {
+                    title: "静态公有方法列表",
+                    methods: cls.publicStaticFuncs || [],
+                    inherits: publicStaticFuncInherits || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/attribute_section", {
+                    title: "公有字段列表",
+                    attributes: cls.publicAttributes || [],
+                    inherits: publicAttrsInherits || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/attribute_section", {
+                    title: "静态公有字段列表",
+                    attributes: cls.publicStaticAttributes || [],
+                    inherits: publicStaticAttrsInherits || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/type_section", {
+                    title: "保护类型列表",
+                    types: cls.protectedTypes || [],
+                    inherits: protectedTypes || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/method_section", {
+                    title: "保护方法列表",
+                    methods: cls.protectedFuncs || [],
+                    inherits: protectedFuncInherits || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/method_section", {
+                    title: "静态保护方法列表",
+                    methods: cls.protectedStaticFuncs || [],
+                    inherits: protectedStaticFuncInherits || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/attribute_section", {
+                    title: "保护字段列表",
+                    attributes: cls.protectedAttributes || [],
+                    inherits: protectedAttrsInherits || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/attribute_section", {
+                    title: "静态保护字段列表",
+                    attributes: cls.protectedStaticAttributes || [],
+                    inherits: protectedStaticAttrsInherits || {},
+                    baseClasses: cls.baseClasses || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/friend_section", {
+                    friends: cls.friends
+                }) %>
+                
+                <div class="uk-margin-medium-top">
+                <h3>详细描述文档</h3>
+                </div>
+                <div class="uk-margin-small-top uk-text-break">
+                在文件&nbsp;<span class="uk-text-success"><%- cls.location.file.substring(8) %></span>&nbsp;的第
+                &nbsp;<span class="uk-text-success"><%- cls.location.line %></span>&nbsp;行定义
+                </div>
+                <%- partial("_partial/cppapi/class/type_info_section", {
+                    title: "公有类型文档",
+                    types: cls.publicTypes || []
+                }) %>
+                <%- partial("_partial/cppapi/class/type_info_section", {
+                    title: "保护类型文档",
+                    types: cls.protectedTypes || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/method_info_section", {
+                    title: "构造与析构函数文档",
+                    methods: constructorAndDestructors || [],
+                    showConstructorAndDestructor: true
+                }) %>
+
+                <%- partial("_partial/cppapi/class/method_info_section", {
+                    title: "公有方法文档",
+                    methods: cls.publicFuncs || [],
+                    showConstructorAndDestructor: false
+                }) %>
+
+                <%- partial("_partial/cppapi/class/method_info_section", {
+                    title: "静态公有方法文档",
+                    methods: cls.publicStaticFuncs || [],
+                    showConstructorAndDestructor: false
+                }) %>
+
+                <%- partial("_partial/cppapi/class/method_info_section", {
+                    title: "保护方法文档",
+                    methods: cls.protectedFuncs || [],
+                    showConstructorAndDestructor: false
+                }) %>
+
+                <%- partial("_partial/cppapi/class/method_info_section", {
+                    title: "静态保护方法文档",
+                    methods: cls.protectedStaticFuncs || [],
+                    showConstructorAndDestructor: false
+                }) %>
+
+                <%- partial("_partial/cppapi/class/attribute_info_section", {
+                    title: "公有字段文档",
+                    attributes: cls.publicAttributes || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/attribute_info_section", {
+                    title: "公有静态字段文档",
+                    attributes: cls.publicStaticAttributes || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/attribute_info_section", {
+                    title: "保护字段文档",
+                    attributes: cls.protectedAttributes || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/attribute_info_section", {
+                    title: "保护静态字段文档",
+                    attributes: cls.protectedStaticAttributes || []
+                }) %>
+
+                <%- partial("_partial/cppapi/class/friend_info_section", {
+                    friends: cls.friends || []
+                }) %>
+                <div class="doxygen-info">generated by Doxygen: <%- get_doxygen_version() %></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   $(function ()
+   {
+      $(document).ready(function ()
+      {
+         if (location.hash.trim().length > 0) {
+            var target = $(location.hash);
+            if (target.length > 0) {
+               $('html,body')
+               .stop()
+               .animate({scrollTop: Math.round($(location.hash).offset().top)}, 0);
+            }
+         }
+         $(".page-scroll-trigger").each(function(){
+            var targetUrl = $(this).attr('href');
+            var parts = targetUrl.split('#');
+            if (parts) {
+               targetUrl = parts[0];
+            }
+            if (targetUrl == location.pathname) {
+               UIkit.scroll(this);
+               $(this).on('scrolled', function () {
+                  location.hash = parts[1];
+               });
+            }
+         });
+         $(".detail-description table").each(function ()
+         {
+            $(this).addClass("uk-table uk-table-divider uk-table-small uk-table-striped");
+         });
+      });
+   });
+</script>

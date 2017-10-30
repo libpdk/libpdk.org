@@ -1,0 +1,56 @@
+<%
+let cls = "";
+if (attributes && attributes.length != 0) {
+    cls = "attribute-class-section-item-container class-section-item-container";
+} else {
+    cls = "uk-hidden";
+}
+%>
+<%
+function render_attributes(attributes) {
+        for (let i in attributes) {
+    let item = attributes[i];
+%>
+<div class="uk-grid-small list-item" data-uk-grid>
+    <div class="uk-width-1-1">
+        <div class="define uk-text-break"><%- item.simpleDefineStr %></div>
+        <div class="uk-text-break"><%- item.briefDescription %></div>
+    </div>
+</div>
+<% } %>
+<% } %>
+
+<div class="<%- cls %>">
+    <div class="section-title uk-margin-medium-bottom">
+        <h3><%- title %></h3>
+    </div>
+    <% if (attributes.length) { %>
+    <% render_attributes(attributes) %>
+    <% } %>
+    <% if (inherits) { %>
+    <ul data-uk-accordion="multiple: true" class="uk-margin-medium-top inherits-container">
+        <%
+        for(let i in baseClasses) {
+            let baseCls = baseClasses[i];
+            let key = baseCls.name;
+        if (inherits[key]) {
+        %>
+        <li class="inherit-item">
+            <div class="uk-accordion-title uk-width-1-1 uk-text-middle uk-text-left">
+               <span class="uk-text-break">
+                  查看继承自 <%- key %> 类的字段
+               </span>
+            </div>
+            <div class="uk-accordion-content">
+                <% render_attributes(inherits[key]) %>
+            </div>
+        </li>
+        <%
+        }
+        }
+        %>
+    </ul>
+    <%
+    }
+    %>
+</div>

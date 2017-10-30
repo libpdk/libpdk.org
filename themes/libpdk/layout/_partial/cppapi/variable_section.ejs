@@ -1,0 +1,21 @@
+<%
+let cls = "";
+if (variables.length != 0 ) {
+    cls = "section-item-container variable-section-container";
+} else {
+    cls = "uk-hidden";
+}
+%>
+<div class="<%- cls %>">
+    <h3>变量定义列表</h3>
+    <% for (let i in variables) {
+        let item = variables[i];
+    %>
+    <div class="uk-grid-small list-item" uk-grid>
+        <div class="uk-width-1-1">
+            <div class="define uk-text-break"><%- showSimpleName ? item.simpleDefineStr :item.defineStr %></div>
+            <div class="uk-text-break uk-margin-small-top"><%- item.briefDescription %></div>
+        </div>
+    </div>
+    <% } %>
+</div>

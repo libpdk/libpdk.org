@@ -1,0 +1,26 @@
+<%
+let cls = "";
+if (typedefs.length != 0 ) {
+    cls = "section-item-container typedef-section-container";
+} else {
+    cls = "uk-hidden";
+}
+%>
+
+<div class="<%- cls %>">
+    <h3>Typedef 定义列表</h3>
+    <% for (let i in typedefs) { 
+    let item = typedefs[i];
+    %>
+    <div class="uk-grid-small list-item" data-uk-grid key = {"typedefsection"+index}>
+        <div class="uk-width-1-1">
+            <div class="define uk-text-break">
+                <%- showSimpleName? item.simpleDefinition : item.definition %>
+            </div>
+            <div class="uk-text-break">
+                <%- item.briefDescription %>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>

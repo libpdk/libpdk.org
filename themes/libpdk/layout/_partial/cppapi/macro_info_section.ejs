@@ -1,0 +1,61 @@
+<%
+let tobeRendered = [];
+defines.map(function (item)
+{
+    if (item.containerId == containerId) {
+        tobeRendered.push(item);
+    }
+});
+let cls = "";
+if (tobeRendered.length != 0 ) {
+    cls = "uk-margin-medium-top section-info-item-container macro-section-info-item-container ";
+} else {
+    cls = "uk-hidden";
+}
+%>
+<div class="<%- cls %>">
+    <div class="section-title uk-margin-medium-bottom">
+        <h3>宏定义详细文档</h3>
+    </div>
+    <% for (let i in tobeRendered) {
+        let item = tobeRendered[i];
+    %>
+    <div class="section-item uk-margin-medium-bottom">
+        <a id="<%- item.id %>"></a>
+        <div class="uk-flex uk-flex-wrap section-item-name-wrapper uk-margin-small-top">
+            <div class="uk-width-1-1 section-item-name">
+                <a href="<%- "#"+item.id %>"><img src="/statics/images/apidocs/cpp/link.svg"/></a>
+                <span class="uk-text-break"><%- item.name %></span>
+            </div>
+        </div>
+        <div class="uk-background-muted uk-margin-small-top uk-text-break macro-definition definition uk-flex uk-flex-left uk-flex-wrap">
+            <span class="define-keyword">#define</span>
+            <div class="uk-text-break name">
+                     <span>
+                     <%- item.name %>
+                         <%if (item.params && item.params.length > 0) { %>
+                         <%- "( " +item.paramsString + " )" %>
+                         <% } %>
+                     </span>
+            </div>
+            <% if (item.initializer && item.initializer.indexOf("\n") == -1) { %>
+            <div class="define uk-text-primary">
+                <span><%- item.initializer %></span>
+            </div>
+            <% } %>
+        </div>
+        <div class="uk-text-break uk-margin-small-top">
+            #include &lt;<a href="<%- item.containerRef.url %>"><%- item.location.file %></a>&gt;
+        </div>
+        <% if (item.briefDescription.length > 0) { %>
+        <div class="uk-margin-small-top uk-text-break"><%- item.briefDescription %></div>
+        <% } %>
+        <% if (item.detailDescription.length > 0) { %>
+        <div class="uk-margin-small-top uk-text-break"><%- item.detailDescription %></div>
+        <% } %>
+        <div class="uk-margin-small-top uk-text-break">
+            在文件 <span class="uk-text-success"><%- item.location.file.substring(8) %></span> 的第 <span class="uk-text-success"><%- item.location.line %></span> 行定义
+        </div>
+    </div>
+    <% } %>
+</div>

@@ -1,0 +1,41 @@
+<%
+let cls = "";
+if (types.length != 0) {
+    cls = "uk-margin-medium-top class-info-section-item-container type-class-info-section-item-container";
+} else {
+    cls = "uk-hidden";
+}
+%>
+<div class="<%- cls %>">
+    <div class="section-title uk-margin-medium-bottom">
+        <h3><%- title %></h3>
+    </div>
+    <% for (let i in types) {
+        let item = types[i];
+    %>
+    <div class="section-item uk-margin-medium-bottom">
+        <a id="<%- item.id %>"></a>
+        <div class="uk-flex uk-flex-wrap section-item-name-wrapper">
+            <div class="uk-width-1-1 section-item-name">
+                <a href="<%- "#"+item.id %>"><img src="/statics/images/apidocs/cpp/link.svg"/></a>
+                <span><%- item.simpleName %></span></div>
+        </div>
+        <div class="uk-background-muted uk-text-break uk-margin-small-top typedef-definition definition uk-flex uk-flex-left uk-flex-wrap">
+            <div class="define uk-text-break"><%- item.definitionWithoutSelfLink %></div>
+        </div>
+        <% if (item.briefDescription.length > 0) { %>
+        <div class="uk-margin-small-top uk-text-break">
+            <%- item.briefDescription %>
+        </div>
+        <% } %>
+        <% if (item.detailDescription.length > 0) { %>
+        <div class="uk-margin-small-top uk-text-break">
+            <%- item.detailDescription %>
+        </div>
+        <% } %>
+        <div class="uk-margin-small-top uk-text-break">
+            在文件 <span class="uk-text-success"><%- item.location.file.substring(8) %></span> 的第 <span class="uk-text-success"><%- item.location.line %></span> 行定义
+        </div>
+    </div>
+    <% } %>
+</div>

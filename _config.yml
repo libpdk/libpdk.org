@@ -79,7 +79,13 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: libpdk
-libpdk_version: 0.0.1
+project_version: 0.0.1
+libpdk_ide_helper_repo: "https://github.com/libpdk/ide-auto-complete.git"
+cpp_generator:
+  repo_url: "https://github.com/qcoreteam/zendapi.git"
+  project_name: "libpdk"
+  publish_dir: "apidocs/cpp"
+  
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

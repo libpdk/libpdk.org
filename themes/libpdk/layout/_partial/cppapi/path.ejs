@@ -1,0 +1,27 @@
+<div>
+    <div class="nav-path uk-flex uk-flex-left uk-text-break uk-visible@s">
+        <div data-uk-icon="icon: home"></div>
+        <ul class="uk-breadcrumb">
+            <% for(let i in pathList) { 
+               let item = pathList[i];
+                if(item.url) {
+            %>
+            <li><a href="<%- item.url %>"><%- item.name %></a></li>
+            <% } else { %>
+            <li class="uk-disabled"><a href="#"><%- item.name %></a></li>
+            <% } %>
+            <% } %>
+        </ul>
+    </div>
+    <div class="nav-path-grid uk-hidden@s uk-grid-collapse " uk-grid>
+        <% for(let i in pathList) {
+            let item = pathList[i];
+            if(item.url) {
+        %>
+        <div class="uk-width-1-1"><span uk-icon="icon: link"></span><a href="<%- item.url %>"><%- item.name %></a></div>
+        <% } else { %>
+        <div class="uk-width-1-1 uk-disabled"><a href="#"><%- item.name %></a></div>
+        <% } %>
+        <% } %>
+    </div>
+</div>

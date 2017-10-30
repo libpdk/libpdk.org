@@ -1,0 +1,30 @@
+<%
+let cls = "";
+if (friends && friends.length != 0) {
+    cls = "friend-class-section-item-container class-section-item-container";
+} else {
+    cls = "uk-hidden";
+}
+%>
+<div class="<%- cls %>">
+    <div class="section-title uk-margin-medium-bottom">
+        <h3>友元列表</h3>
+    </div>
+    <% for (let i in friends) { 
+        let item = friends[i];
+    %>
+    <div class="uk-grid-small list-item" data-uk-grid>
+        <div class="uk-width-1-1">
+            <% if (item.isTemplate) { %>
+            <div class="uk-width-1-1 tpl-params">template &lt;<%- item.tplParamsString %>&gt;</div>
+            <% } %>
+            <div class="<%- item.isTemplate ? "define uk-text-break uk-margin-small-top" : "define uk-text-break" %>">
+                <%- item.defineStr %>
+            </div>
+        <div class="uk-text-break uk-margin-small-top">
+            <%- item.briefDescription %>
+        </div>
+    </div>
+</div>
+<% } %>
+</div>

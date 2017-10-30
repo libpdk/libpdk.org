@@ -1,0 +1,62 @@
+<%
+let cls = "";
+if (methods && methods.length != 0) {
+    cls = "method-class-section-item-container class-section-item-container";
+} else {
+    cls = "uk-hidden";
+}
+let showSimpleName = true;
+%>
+<%
+function render_methods(methods, showSimpleName)
+{
+        for (let i in methods) {
+    let item = methods[i];
+%>
+<div class="uk-grid-small list-item" data-uk-grid>
+
+    <% if (item.isTemplate) { %>
+    <div class="uk-width-1-1 tpl-params">template &lt;<%- item.tplParamsString %>&gt;</div>
+    <% } %>
+    <div class="uk-width-1-1 uk-text-break signature">
+        <%- showSimpleName ? item.simpleSignature : item.signature %>
+    </div>
+    <div class="uk-width-1-1 uk-width-3-4@s uk-text-break">
+        <%- item.briefDescription %>
+    </div>
+</div>
+<%
+}
+}
+%>
+<div class="<%- cls %>">
+    <div class="section-title uk-margin-medium-bottom">
+        <h3><%- title %></h3>
+    </div>
+    <% if (methods.length > 0) { %>
+    <% render_methods(methods, showSimpleName) %>
+    <% } %>
+    <% if (inherits) { %>
+    <ul data-uk-accordion="multiple: true" class="uk-margin-medium-top inherits-container">
+        <% for (let baseIndex in baseClasses) {
+            let baseCls = baseClasses[baseIndex];
+            let key = baseCls.name;
+        if (inherits[key]) {
+        %>
+        <li class="inherit-item">
+            <div class="uk-accordion-title uk-width-1-1 uk-text-middle uk-text-left">
+               <span class="uk-text-break">
+                  查看继承自 <%- key %> 类的方法
+               </span>
+            </div>
+            <div class="uk-accordion-content">
+                <% render_methods(inherits[key], true) %>
+            </div>
+        </li>
+        <%
+        }
+        }
+        %>
+    </ul>
+    <% } %>
+</div>
