@@ -135,9 +135,6 @@ $libpdk-apidoc-page-width: 1300px;
       margin-top: -5px;
     }
   }
-  .namespace-entry {
-    font-family: "Gotham Rounded";
-  }
   a {
     font-size: 1.2em;
   }
@@ -226,18 +223,6 @@ $libpdk-apidoc-page-width: 1300px;
   a {
     font-size: 1.1em;
   }
-  .title {
-    margin: 0!important;
-    padding: 0!important;
-    @media (min-width: 640px) {
-      margin-top: 15px!important;
-    }
-  }
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
-  }
   .include-files {
     padding-left: 0;
     li {
@@ -248,18 +233,6 @@ $libpdk-apidoc-page-width: 1300px;
 
 .cppapidoc-file-content-info-container
 {
-  .title {
-    margin: 0!important;
-    padding: 0!important;
-    @media (min-width: 640px) {
-      margin-top: 15px!important;
-    }
-  }
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
-  }
   .list-item {
     a ,span {
       font-size: 1.2em;
@@ -287,10 +260,6 @@ $libpdk-apidoc-page-width: 1300px;
 
 .cppapidoc-globals-info-container
 {
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-  }
   .title {
     font-size: 1.8em;
     color: #000000;
@@ -320,27 +289,10 @@ $libpdk-apidoc-page-width: 1300px;
 
 .cppapidoc-module-content-info-container
 {
-  .title {
-    margin: 0!important;
-    padding: 0!important;
-    @media (min-width: 640px) {
-      margin-top: 15px!important;
-    }
-  }
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
-  }
 }
 
 .cppapidoc-modules-info-container
 {
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
-  }
   .list-item {
     a ,span {
       font-size: 1.2em;
@@ -354,27 +306,10 @@ $libpdk-apidoc-page-width: 1300px;
 
 .cppapidoc-namespace-content-info-container
 {
-  .title {
-    margin: 0!important;
-    padding: 0!important;
-    @media (min-width: 640px) {
-      margin-top: 15px!important;
-    }
-  }
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
-  }
 }
 
 .cppapidoc-namespaces-info-container
 {
-  .uk-grid {
-    border-bottom: 1px solid #e5e5e5!important;
-    padding-bottom: 5px;
-    margin-left:3px;
-  }
   .list-item {
     a ,span {
       font-size: 1.2em;
@@ -453,6 +388,20 @@ $libpdk-apidoc-page-width: 1300px;
       }
     }
     margin-bottom: 20px!important;
+  }
+  .uk-grid {
+    border-bottom: 1px solid #e5e5e5!important;
+    padding-bottom: 5px;
+    margin-left:3px;
+  }
+  .title {
+    margin: 0!important;
+    padding: 0!important;
+    margin-bottom: 20px!important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    font-family: $global-font-family;
   }
 }
 
@@ -600,7 +549,10 @@ $libpdk-apidoc-page-width: 1300px;
 .class-section-item-container {
   margin-top: 20px;
   @media (min-width: 640px) {
-    margin-top: 40px;
+    margin-top: 30px;
+  }
+  .section-title {
+    margin-bottom: 20px;
   }
   .uk-grid-small > * {
     padding-left: 1px!important;

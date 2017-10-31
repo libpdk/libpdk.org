@@ -153,7 +153,7 @@ let constructorAndDestructors = get_constructor_and_destructors(cls);
                     <li class="uk-text-break">
                         #include <%- item.local ? '"' : "<" %>
                         <% if (item.url) { %>
-                        <a href={include.url}><%- item.name %></a>
+                        <a href="<%- item.url %>"><%- item.name %></a>
                         <% } %>
                         <%- item.local ? '"': ">" %>
                     </li>

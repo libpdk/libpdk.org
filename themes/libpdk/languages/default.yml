@@ -68,11 +68,11 @@ cppapidoc:
   common:
     define_location: "defined at line <span class='uk-text-success'>%s</span> of file <span class='uk-text-success'>%s</span>"
   index:
-    page_title: ""
+    page_title: "Welcome to visit libpdk C++ API documentation page"
     module_list: "Module List"
     namespace_list: "Namespace List"
   globals:
-    page_title: ""
+    page_title: "The global definitions of libpdk framework"
     global_classes: "Global Classes"
     global_structs: "Global Structs"
     global_macros: "Global Macros"
@@ -80,16 +80,16 @@ cppapidoc:
     global_functions: "Global Functions"
     global_const_and_var: "Global Constants & Variables"
   namespaces:
-    page_title: ""
+    page_title: "The namespaces catalog of libpdk framework"
     namespace_list: "Namespace List"
   modules:
-    page_title: ""
+    page_title: "The modules catalog of libpdk framework"
     module_list: "Module List"
   files:
-    page_title: ""
+    page_title: "The all header files of libpdk framework"
     file_list: "File List"
   class_content:
-    page_title: ""
+    page_title: "Class %s detail description page"
     public_types: "Public Types"
     public_methods: "Public Methods"
     public_static_methods: "Public Static Methods"
@@ -102,6 +102,12 @@ cppapidoc:
     protected_statics_properties: "Protected Static Properties"
     detail_description: "Detail Description"
     constructor_and_destructor: "Constructors & Destructor"
+  namespace_content:
+    page_title: "Namespace %s detail description page"
+  module_content:
+    page_title: "Module %s detail description page"
+  file_content:
+    page_title: "File %s detail description page"
   partial_variable_section:
     variable_define: "Variable Defines"
   partial_class_section: 

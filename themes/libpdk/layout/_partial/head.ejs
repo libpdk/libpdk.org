@@ -42,31 +42,31 @@ if (layout == "post") {
     cssfilename = "blog.css";
     title = __("blog.page_title");
 } else if (layout == "cppapiindex") {
-    title = "欢迎访问 zendAPI 接口文档栏目";
+    title = __("cppapidoc.index.page_title");
     cssfilename = "cppapidoc.css";
 } else if (layout == "cppapimodules") {
-    title = "模块文档索引页-zendAPI";
+    title = __("cppapidoc.modules.page_title");
     cssfilename = "cppapidoc.css";
 } else if (layout == "cppapinamespaces") {
-    title = "名称空间文档索引页-zendAPI";
+    title = __("cppapidoc.namespaces.page_title");
     cssfilename = "cppapidoc.css";
 } else if (layout == "cppapiglobals") {
-    title = " 全局定义文档索引页-zendAPI";
+    title = __("cppapidoc.globals.page_title");
     cssfilename = "cppapidoc.css";
 } else if (layout == "cppapifiles") {
-    title = "所有文件文档索引页-zendAPI";
+    title = __("cppapidoc.files.page_title");
     cssfilename = "cppapidoc.css";
 } else if (layout == "cppapiclasscontent") {
-    title = page.cls.name + " 类详细文档";
+    title = __("cppapidoc.class_content.page_title", page.cls.name);
     cssfilename = "cppapidoc.css";
 } else if (layout == "cppapinamespacecontent") {
-    title = page.namespace.name + " 名称空间详细文档";
+    title = __("cppapidoc.namespace_content.page_title", page.namespace.name);
     cssfilename = "cppapidoc.css";
 } else if (layout == "cppapimodulecontent") {
-    title = page.module.name + " 模块详细文档";
+    title = __("cppapidoc.module_content.page_title", page.module.name);
     cssfilename = "cppapidoc.css";
 } else if (layout == "cppapifilecontent") {
-    title = page.file.name + " 文件详细文档";
+    title = __("cppapidoc.file_content.page_title", page.file.name);
     cssfilename = "cppapidoc.css";
 }
 %>
