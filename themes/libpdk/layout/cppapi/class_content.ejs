@@ -147,13 +147,13 @@ let constructorAndDestructors = get_constructor_and_destructors(cls);
                 <h3 class="title uk-text-break"><%- cls.name %></h3>
                 <% if (cls.includes && cls.includes.length > 0) { %>
                 <ul class="include-files">
-                    <% for (let includeIndex in cls.includes) { 
-                    let item = cls.includes[includeIndex];
+                    <% for (let includeIndex in cls.includes) {
+                        let item = cls.includes[includeIndex];
                     %>
                     <li class="uk-text-break">
                         #include <%- item.local ? '"' : "<" %>
                         <% if (item.url) { %>
-                        <a href={include.url}><%- item.name %></a>:<span><%- item.name %></span>
+                        <a href={include.url}><%- item.name %></a>
                         <% } %>
                         <%- item.local ? '"': ">" %>
                     </li>
@@ -174,69 +174,69 @@ let constructorAndDestructors = get_constructor_and_destructors(cls);
                     baseClasses: cls.baseClasses
                 }) %>
                 <%- partial("_partial/cppapi/class/type_section", {
-                    title: "公有类型列表",
+                    title: __("cppapidoc.class_content.public_types"),
                     types: cls.publicTypes || [],
-                    inherits: publicTypes || {}, 
+                    inherits: publicTypes || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
                 <%- partial("_partial/cppapi/class/method_section", {
-                    title: "公有方法列表",
+                    title: __("cppapidoc.class_content.public_methods"),
                     methods: cls.publicFuncs || [],
                     inherits: publicFuncInherits || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
-                
+
                 <%- partial("_partial/cppapi/class/method_section", {
-                    title: "静态公有方法列表",
+                    title: __("cppapidoc.class_content.public_static_methods"),
                     methods: cls.publicStaticFuncs || [],
                     inherits: publicStaticFuncInherits || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/attribute_section", {
-                    title: "公有字段列表",
+                    title: __("cppapidoc.class_content.public_properties"),
                     attributes: cls.publicAttributes || [],
                     inherits: publicAttrsInherits || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/attribute_section", {
-                    title: "静态公有字段列表",
+                    title: __("cppapidoc.class_content.public_static_properties"),
                     attributes: cls.publicStaticAttributes || [],
                     inherits: publicStaticAttrsInherits || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/type_section", {
-                    title: "保护类型列表",
+                    title: __("cppapidoc.class_content.protected_types"),
                     types: cls.protectedTypes || [],
                     inherits: protectedTypes || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/method_section", {
-                    title: "保护方法列表",
+                    title: __("cppapidoc.class_content.protected_methods"),
                     methods: cls.protectedFuncs || [],
                     inherits: protectedFuncInherits || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/method_section", {
-                    title: "静态保护方法列表",
+                    title: __("cppapidoc.class_content.protected_statics_methods"),
                     methods: cls.protectedStaticFuncs || [],
                     inherits: protectedStaticFuncInherits || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/attribute_section", {
-                    title: "保护字段列表",
+                    title: __("cppapidoc.class_content.protected_properties"),
                     attributes: cls.protectedAttributes || [],
                     inherits: protectedAttrsInherits || {},
                     baseClasses: cls.baseClasses || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/attribute_section", {
-                    title: "静态保护字段列表",
+                    title: __("cppapidoc.class_content.protected_statics_properties"),
                     attributes: cls.protectedStaticAttributes || [],
                     inherits: protectedStaticAttrsInherits || {},
                     baseClasses: cls.baseClasses || []
@@ -245,70 +245,66 @@ let constructorAndDestructors = get_constructor_and_destructors(cls);
                 <%- partial("_partial/cppapi/class/friend_section", {
                     friends: cls.friends
                 }) %>
-                
+
                 <div class="uk-margin-medium-top">
-                <h3>详细描述文档</h3>
-                </div>
-                <div class="uk-margin-small-top uk-text-break">
-                在文件&nbsp;<span class="uk-text-success"><%- cls.location.file.substring(8) %></span>&nbsp;的第
-                &nbsp;<span class="uk-text-success"><%- cls.location.line %></span>&nbsp;行定义
+                    <h3><%= __("cppapidoc.class_content.detail_description") %></h3>
                 </div>
                 <%- partial("_partial/cppapi/class/type_info_section", {
-                    title: "公有类型文档",
+                    title: __("cppapidoc.class_content.public_types"),
                     types: cls.publicTypes || []
                 }) %>
                 <%- partial("_partial/cppapi/class/type_info_section", {
-                    title: "保护类型文档",
+                    title: __("cppapidoc.class_content.protected_types"),
                     types: cls.protectedTypes || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/method_info_section", {
-                    title: "构造与析构函数文档",
+                    title: __("cppapidoc.class_content.constructor_and_destructor"),
                     methods: constructorAndDestructors || [],
                     showConstructorAndDestructor: true
                 }) %>
 
                 <%- partial("_partial/cppapi/class/method_info_section", {
-                    title: "公有方法文档",
+                    title: __("cppapidoc.class_content.public_methods"),
                     methods: cls.publicFuncs || [],
                     showConstructorAndDestructor: false
                 }) %>
 
                 <%- partial("_partial/cppapi/class/method_info_section", {
-                    title: "静态公有方法文档",
+                    title: __("cppapidoc.class_content.public_static_methods"),
                     methods: cls.publicStaticFuncs || [],
                     showConstructorAndDestructor: false
                 }) %>
 
                 <%- partial("_partial/cppapi/class/method_info_section", {
-                    title: "保护方法文档",
+                    title: __("cppapidoc.class_content.protected_methods"),
                     methods: cls.protectedFuncs || [],
                     showConstructorAndDestructor: false
                 }) %>
 
                 <%- partial("_partial/cppapi/class/method_info_section", {
-                    title: "静态保护方法文档",
+                    title: __("cppapidoc.class_content.protected_static_methods"),
                     methods: cls.protectedStaticFuncs || [],
                     showConstructorAndDestructor: false
                 }) %>
 
                 <%- partial("_partial/cppapi/class/attribute_info_section", {
-                    title: "公有字段文档",
+                    title: __("cppapidoc.class_content.public_properties"),
                     attributes: cls.publicAttributes || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/attribute_info_section", {
-                    title: "公有静态字段文档",
+                    title: __("cppapidoc.class_content.public_static_properties"),
                     attributes: cls.publicStaticAttributes || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/attribute_info_section", {
-                    title: "保护字段文档",
+                    title: __("cppapidoc.class_content.protected_properties"),
                     attributes: cls.protectedAttributes || []
                 }) %>
 
                 <%- partial("_partial/cppapi/class/attribute_info_section", {
-                    title: "保护静态字段文档",
+                    title: __("cppapidoc.class_content.protected_static_properties"),
                     attributes: cls.protectedStaticAttributes || []
                 }) %>
 
@@ -322,35 +318,32 @@ let constructorAndDestructors = get_constructor_and_destructors(cls);
 </div>
 
 <script>
-   $(function ()
+   $(document).ready(function ()
    {
-      $(document).ready(function ()
-      {
-         if (location.hash.trim().length > 0) {
-            var target = $(location.hash);
-            if (target.length > 0) {
-               $('html,body')
-               .stop()
-               .animate({scrollTop: Math.round($(location.hash).offset().top)}, 0);
-            }
+      if (location.hash.trim().length > 0) {
+         var target = $(location.hash);
+         if (target.length > 0) {
+            $('html,body')
+            .stop()
+            .animate({scrollTop: Math.round($(location.hash).offset().top)}, 0);
          }
-         $(".page-scroll-trigger").each(function(){
-            var targetUrl = $(this).attr('href');
-            var parts = targetUrl.split('#');
-            if (parts) {
-               targetUrl = parts[0];
-            }
-            if (targetUrl == location.pathname) {
-               UIkit.scroll(this);
-               $(this).on('scrolled', function () {
-                  location.hash = parts[1];
-               });
-            }
-         });
-         $(".detail-description table").each(function ()
-         {
-            $(this).addClass("uk-table uk-table-divider uk-table-small uk-table-striped");
-         });
+      }
+      $(".page-scroll-trigger").each(function(){
+         var targetUrl = $(this).attr('href');
+         var parts = targetUrl.split('#');
+         if (parts) {
+            targetUrl = parts[0];
+         }
+         if (targetUrl == location.pathname) {
+            UIkit.scroll(this);
+            $(this).on('scrolled', function () {
+               location.hash = parts[1];
+            });
+         }
+      });
+      $(".detail-description table").each(function ()
+      {
+         $(this).addClass("uk-table uk-table-divider uk-table-small uk-table-striped");
       });
    });
 </script>

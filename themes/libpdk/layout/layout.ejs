@@ -9,7 +9,7 @@ let apilayouts = [
     "cppapiindex",
     "cppapimodules",
     "cppapinamespaces",
-    "apiclasses",
+    "cppapiclasses",
     "cppapiglobals",
     "cppapifiles",
     "cppapimodulecontent",
@@ -29,7 +29,7 @@ if (page.layout) {
 }
 let apiCatalog = [];
 if (_.indexOf(apilayouts, layout) != -1) {
-    apiCatalog = get_api_catalog(page, config, site);
+    apiCatalog = get_site_data('cppapi/catalog');
 }
 %>
 <div class="uk-offcanvas-content">
@@ -72,13 +72,17 @@ if (_.indexOf(apilayouts, layout) != -1) {
                     <li class="uk-width-1-1"><a href = "/about/becomedeveloper.html"><%= __("about.menu_become_developer") %></a></li>
                     <li class="uk-width-1-1"><a href = "/about/becomepartner.html"><%= __("about.menu_become_partner") %></a></li>
                 </ul>
-                <%} else if (_.indexOf(apilayouts, layout) != -1) {%>
+                <%} else if (_.indexOf(apilayouts, layout) != -1) {
+                %>
                 <ul class = "uk-text-left extra-items uk-width-1-1">
                     <%
-                    for(let i = 0; i < apiCatalog.length; i++) {
-                        let catalogItem = apiCatalog[i];
+                    for(let key in apiCatalog) {
+                        let catalogItem = apiCatalog[key];
                     %>
-                    <li class="uk-width-1-1"><a href = <%- catalogItem.url %>><%- catalogItem.name %></a></li>
+                    <li class="uk-width-1-1">
+                        <img src="/statics/images/apidocs/cpp/<%- catalogItem.icon %>" style="height: 20px;width: 20px;padding-right: 5px"/>
+                        <a href = "<%- catalogItem.url %>"><%- catalogItem.name %></a>
+                    </li>
                     <% } %>
                 </ul>
                 <% }%>

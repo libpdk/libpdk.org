@@ -98,36 +98,32 @@ namespace.npaths = npaths;
     </div>
 </div>
 <script>
-
-   $(function ()
+   $(document).ready(function ()
    {
-      $(document).ready(function ()
-      {
-         if (location.hash.trim().length > 0) {
-            let target = $(location.hash);
-            if (target.length > 0) {
-               $('html,body')
-               .stop()
-               .animate({scrollTop: Math.round($(location.hash).offset().top)}, 0);
-            }
+      if (location.hash.trim().length > 0) {
+         var target = $(location.hash);
+         if (target.length > 0) {
+            $('html,body')
+            .stop()
+            .animate({scrollTop: Math.round($(location.hash).offset().top)}, 0);
          }
-         $(".page-scroll-trigger").each(function(){
-            let targetUrl = $(this).attr('href');
-            let parts = targetUrl.split('#');
-            if (parts) {
-               targetUrl = parts[0];
-            }
-            if (targetUrl == location.pathname) {
-               UIkit.scroll(this);
-               $(this).on('scrolled', function () {
-                  location.hash = parts[1];
-               });
-            }
-         });
-         $(".detail-description table").each(function ()
-         {
-            $(this).addClass("uk-table uk-table-divider uk-table-small uk-table-striped");
-         });
+      }
+      $(".page-scroll-trigger").each(function(){
+         var targetUrl = $(this).attr('href');
+         var parts = targetUrl.split('#');
+         if (parts) {
+            targetUrl = parts[0];
+         }
+         if (targetUrl == location.pathname) {
+            UIkit.scroll(this);
+            $(this).on('scrolled', function () {
+               location.hash = parts[1];
+            });
+         }
+      });
+      $(".detail-description table").each(function ()
+      {
+         $(this).addClass("uk-table uk-table-divider uk-table-small uk-table-striped");
       });
    });
 </script>

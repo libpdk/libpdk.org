@@ -14,7 +14,7 @@ _.values(page.namespaces).map(function(doc){
                 <%- partial("_partial/cppapi/sidepanel") %>
             </div>
             <div class="uk-width-expand cppapidoc-info-container cppapidoc-namespaces-info-container">
-                <h3 class="uk-width-1-1 title">名称空间列表</h3>
+                <h3 class="uk-width-1-1 title"><%= __("cppapidoc.namespaces.namespace_list") %></h3>
                 <% for (let i in namespaces) {
                     let item = namespaces[i];
                 %>

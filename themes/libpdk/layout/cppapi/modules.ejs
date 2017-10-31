@@ -15,7 +15,7 @@ let moduleList = generate_flat_module_list(moduleModels, 0, "");
                 <%- partial("_partial/cppapi/sidepanel") %>
             </div>
             <div class="uk-width-expand cppapidoc-info-container cppapidoc-modules-info-container">
-                <h3 class="uk-width-1-1 title">模块列表</h3>
+                <h3 class="uk-width-1-1 title"><%= __("cppapidoc.modules.module_list") %></h3>
                 <% for (let i in moduleList) { 
                     let item = moduleList[i];
                 %>

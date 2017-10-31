@@ -8,7 +8,7 @@ if (friends.length != 0) {
 %>
 <div class="<%- cls %>">
     <div class="section-title uk-margin-medium-bottom">
-        <h3>友元详细文档</h3>
+        <h3><%= __("cppapidoc.class.friend_info_section.title") %></h3>
     </div>
     <% for (let i in friends) {
         let item = friends[i];
@@ -42,7 +42,7 @@ if (friends.length != 0) {
         </div>
         <% } %>
         <div class="uk-margin-small-top uk-text-break">
-            在文件 <span class="uk-text-success"><%- item.location.file.substring(8) %></span> 的第 <span class="uk-text-success"><%- item.location.line %></span> 行定义
+            <%- __("cppapidoc.common.define_location",  item.location.line, item.location.file.substring(8))%>
         </div>
     </div>
     <% } %>

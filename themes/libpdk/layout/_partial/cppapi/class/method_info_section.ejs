@@ -52,7 +52,7 @@ if (tobeRendered.length != 0) {
             <div class="uk-margin-small-top uk-text-break"><%- item.detailDescription %></div>
             <% } %>
             <div class="uk-margin-small-top uk-text-break">
-                在文件 <span class="uk-text-success"><%- item.location.file.substring(8) %></span> 的第 <span class="uk-text-success"><%- item.location.line %></span> 行定义
+                <%- __("cppapidoc.common.define_location",  item.location.line, item.location.file.substring(8))%>
             </div>
     </div>
     <% } %>

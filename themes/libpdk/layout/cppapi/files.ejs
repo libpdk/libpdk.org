@@ -19,7 +19,7 @@ fileItems.sort(sort_api_entity_by_path);
                 <%- partial("_partial/cppapi/sidepanel") %>
             </div>
             <div class="uk-nav-default uk-nav-parent-icon uk-width-expand cppapidoc-info-container cppapidoc-files-info-container">
-                <h3 class="uk-width-1-1 title">框架头文件列表</h3>
+                <h3 class="uk-width-1-1 title"><%= __("cppapidoc.files.file_list") %></h3>
                 <% for (let i in fileItems) {
                     let item = fileItems[i];
                 %>

@@ -103,7 +103,7 @@ fileinfo.includes.map(function(include){
    $(document).ready(function ()
    {
       if (location.hash.trim().length > 0) {
-         let target = $(location.hash);
+         var target = $(location.hash);
          if (target.length > 0) {
             $('html,body')
             .stop()
@@ -111,8 +111,8 @@ fileinfo.includes.map(function(include){
          }
       }
       $(".page-scroll-trigger").each(function(){
-         let targetUrl = $(this).attr('href');
-         let parts = targetUrl.split('#');
+         var targetUrl = $(this).attr('href');
+         var parts = targetUrl.split('#');
          if (parts) {
             targetUrl = parts[0];
          }

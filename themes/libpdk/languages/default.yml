@@ -65,6 +65,8 @@ about:
   menu_changelog: "Changelog"
   menu_aboutus: "About us"
 cppapidoc:
+  common:
+    define_location: "defined at line <span class='uk-text-success'>%s</span> of file <span class='uk-text-success'>%s</span>"
   index:
     page_title: ""
     module_list: "Module List"
@@ -77,4 +79,67 @@ cppapidoc:
     global_enums: "Global Enums"
     global_functions: "Global Functions"
     global_const_and_var: "Global Constants & Variables"
-    
+  namespaces:
+    page_title: ""
+    namespace_list: "Namespace List"
+  modules:
+    page_title: ""
+    module_list: "Module List"
+  files:
+    page_title: ""
+    file_list: "File List"
+  class_content:
+    page_title: ""
+    public_types: "Public Types"
+    public_methods: "Public Methods"
+    public_static_methods: "Public Static Methods"
+    public_properties: "Public Properties"
+    public_static_properties: "Public Static Properties"
+    protected_types: "Protected Types"
+    protected_methods: "Protected Methods"
+    protected_statics_methods: "Protected Static Methods"
+    protected_properties: "Protected Properties"
+    protected_statics_properties: "Protected Static Properties"
+    detail_description: "Detail Description"
+    constructor_and_destructor: "Constructors & Destructor"
+  partial_variable_section:
+    variable_define: "Variable Defines"
+  partial_class_section: 
+    classes: "Classes"
+  enum_section:
+    enum_types: "Enum Types"
+  enum_info_section:
+    title: "Enum Detail Descriptions"
+    field_name: "Field Name"
+    field_desc: "Field Description"
+  macro_section:
+    macros: "Macro Defines"
+  macro_info_section:
+    title: "Macro Detail Descriptions"
+  module_section:
+    submodule: "Sub Modules"
+  namespace_section:
+    namespace: "Namespaces"
+  typedef_section:
+    typedef_define: "Typedef Types"
+  typedef_info_section:
+    title: "Typedef Detail Descriptions"
+  function_section:
+    function_list: "Functions"
+  function_info_section:
+    title: "Function Detail Descriptions"
+  variable_info_section:
+    title: "Variable Detail Descriptions"
+  class:
+    base_class_section:
+      parent_classes: "Parent Classes"
+    friend_section:
+      friend_list: "Friend List"
+    friend_info_section:
+      title: "Friend Detail Descriptions"
+    method_section:
+      view_inherit_methods: "view methods from %s"
+    attribute_section:
+      view_inherit_properties: "view properties from %s"
+    type_section:
+      view_inherit_types: "view types from %s"

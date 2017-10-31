@@ -1,13 +1,14 @@
 <%
 let apiSidePanelitems = get_site_data('cppapi/catalog');
+let currentPage = page.catalog || page.layout;
 %>
 <ul class="side-panel uk-visible@m" uk-sticky="offset: 70">
-    <% for (let i in apiSidePanelitems) {
-       let item = apiSidePanelitems[i];
-       let cls = "";
-       if (item.isActive) {
-          cls = "active-item";
-       }
+    <% for (let key in apiSidePanelitems) {
+        let item = apiSidePanelitems[key];
+        let cls = "";
+        if (currentPage == key) {
+            cls = "active-item";
+        }
     %>
     <li class="<%- cls %>"><img src ="<%- "/statics/images/apidocs/cpp/"+item.icon %>"/><a href="<%- item.url %>"><%- item.name %></a></li>
     <% } %>

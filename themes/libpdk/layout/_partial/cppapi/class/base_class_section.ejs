@@ -7,7 +7,7 @@ if (baseClasses && baseClasses.length != 0) {
 }
 %>
 <div class="<%- cls %>">
-    <h3>继承基类列表</h3>
+    <h3><%= __("cppapidoc.class.base_class_section.parent_classes") %></h3>
     <table class="uk-table uk-table-responsive uk-table-small uk-table-divider">
         <tbody>
         <% for (let i in baseClasses) {

@@ -298,14 +298,11 @@ function render_variables(vars)
     </div>
 </div>
 <script>
-   $(function ()
+   $(document).ready(function ()
    {
-      $(document).ready(function ()
+      $(".detail-description table").each(function ()
       {
-         $(".detail-description table").each(function ()
-         {
-            $(this).addClass("uk-table uk-table-divider uk-table-small uk-table-striped");
-         });
+         $(this).addClass("uk-table uk-table-divider uk-table-small uk-table-striped");
       });
    });
 </script>
