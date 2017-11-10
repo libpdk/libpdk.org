@@ -39,10 +39,12 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
+
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
+  enable: false
+  gutter: false
+  line_number: false
+  auto_detect: true
   tab_replace:
 
 # Category & Tag

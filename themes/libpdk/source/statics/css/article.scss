@@ -20,6 +20,9 @@ body {
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
+  b, strong{
+    color: #000000;
+  }
   @media (min-width: 640px) {
     padding:30px;
     margin-bottom: 40px;
@@ -32,6 +35,9 @@ body {
     }
   }
   .article-content {
+    h1, h2, h3, h4, h5, h6, h7 {
+      font-family: $global-font-family;
+    }
     margin-top: 20px;
     font-size:1.2em;
     @media (min-width: 640px) {
